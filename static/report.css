@@ -21,9 +21,9 @@
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
-  }
-  
+    width: 20%;
+    border-radius: 12px;
+ }
   /* Add a hover effect for buttons */
 .content-wrapper button:hover {
     opacity: 0.8;

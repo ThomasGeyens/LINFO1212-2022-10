@@ -28,23 +28,18 @@
             <img src="/images/RnR.png" height="30" alt="" loading="lazy"/>
           </a>
       </div>
-
+      <p class="date-holder" id="date-holder"></p>
       <div class="content-wrapper">
-        <div class="content-top">
-          <% if(user){ %>
-            <a href="/report" class="report-link">Reporter un accident</a>
-            <p class="date-holder" id="date-holder"></p>
-          <% } %>  
-        </div>
+      
         <div class="row">
           <div class="column">
-            <h2>Description</h2>
+            <h2>Chanson</h2>
             <% for(var i=0; i < accidents.length; i++) { %>
               <p><%= accidents[i].description %></p>
            <% } %>
           </div>
           <div class="column">
-            <h2>Adresse</h2>
+            <h2>Avis</h2>
             <% for(var i=0; i < accidents.length; i++) { %>
               <p><%= accidents[i].address %></p>
            <% } %>
@@ -64,6 +59,17 @@
         </div>
       </div>
       <div id='status' class='invisible'><%= errormessage %></div>
+      <center>
+        
+        <% if(user){ %>
+          <div class="button1">
+          <button onclick="window.location.href='/report';">Nouvelle Chanson</button>
+          </div>
+        <% }else{ %>
+          <a>Afin de noter vos propres musiques, veuillez vous connectez ou créer un compte.</a>
+        <% } %>
+        
+      </center>  
     </body>
 
     <script>

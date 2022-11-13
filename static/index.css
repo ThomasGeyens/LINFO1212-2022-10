@@ -33,3 +33,25 @@
   display: table;
   clear: both;
 }
+.button1 {
+  border: none;
+  color: white;
+  padding: 30px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255); 
+  color: black; 
+  border: 2px solid #5a4202;
+}
+
+
+.button1:hover {
+  background-color: #523800;
+  color: white;
+}

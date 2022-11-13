@@ -30,21 +30,41 @@
       </div>
 
       <div class="content-wrapper" id="reportacc">
-        <center><i><h1>Voici les deux champs à remplir afin de signaler l'accident</h1></i></center>
+        <center><i><h1>Notez donc votre chanson !</h1></i></center>
 
         <form method="post">
-            <div class="container">
-              <label for="desc"><b style="font-family: Arial">Description</b></label>
+
+            <div class="container" style="display: inline;">
+              <center>
+              <label for="desc"><b style="font-family: Arial">Le nom de votre musique</b></label>
               <input type="text" id="formfield" placeholder="Entrer description" name="desc" required>
-          
-              <label for="adr"><b style="font-family: Arial">Adresse</b></label>
+              </center>
+
+              <center>
+              <label for="adr"><b style="font-family: Arial">Votre avis sur celle-ci</b></label>
               <input type="text" placeholder="Entrer adresse" name="adr" required>
-          
-              <button type="submit" id="button">Envoyer le rapport</button>
+              </center>
+
+              <center>
+                <label for="note"><b style="font-family: Arial;">Une note sur 10 ?</b></label>
+                <select name="note" id="note" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                </select>
+              </center>
             </div>
           
           </form>
-
+          <center><button type="submit" id="button">Valider</button></center>
       </div>
+      
     </body>
 </html>
