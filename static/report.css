@@ -1,0 +1,38 @@
+.content-wrapper form {
+    border: 3px solid #f1f1f1;
+  }
+  
+  /* Full-width inputs */
+.content-wrapper input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    height: 150px;
+  }
+  
+  /* Set a style for all buttons */
+.content-wrapper button {
+    background-color: #a05b01b7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add a hover effect for buttons */
+.content-wrapper button:hover {
+    opacity: 0.8;
+  }
+
+  input:invalid:required {
+    border: 2px dashed rgb(255, 183, 183);
+  }
+  
+  input:valid {
+    border: 2px solid black;
+  }

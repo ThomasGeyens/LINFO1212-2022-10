@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/nav.css">
+        <link rel="stylesheet" href="/report.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Rapporter - Report 'N Repair</title>
+    </head>
+
+    <body>
+        <div class="navbar">
+          <h4 id="name-holder">
+            <% if(user){ %>
+              <a> <%= user.username %> </a>
+            <% } else{ %>  
+              <a href="/auth">Login</a>
+           <% } %>
+          </h4>
+          <div class="search-container">
+            <form>
+              <input class="search-input" type="text" placeholder="Search.." name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+          <a id="logo-holder" href="/">
+            <img src="images/RnR.png" height="30" alt="" loading="lazy" />
+          </a>
+      </div>
+
+      <div class="content-wrapper" id="reportacc">
+        <center><i><h1>Voici les deux champs à remplir afin de signaler l'accident</h1></i></center>
+
+        <form method="post">
+            <div class="container">
+              <label for="desc"><b style="font-family: Arial">Description</b></label>
+              <input type="text" id="formfield" placeholder="Entrer description" name="desc" required>
+          
+              <label for="adr"><b style="font-family: Arial">Adresse</b></label>
+              <input type="text" placeholder="Entrer adresse" name="adr" required>
+          
+              <button type="submit" id="button">Envoyer le rapport</button>
+            </div>
+          
+          </form>
+
+      </div>
+    </body>
+</html>

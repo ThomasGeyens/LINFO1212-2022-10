@@ -1,0 +1,35 @@
+.content-top {
+  width:100%;
+  margin:0 auto;
+}
+
+.report-link{
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.date-holder{
+  float: right;
+  margin-right: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  margin-top: 50px;
+  margin-left: 10%;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
