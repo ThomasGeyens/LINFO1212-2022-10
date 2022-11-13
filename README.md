@@ -13,3 +13,4 @@ Enfin, la page de rapports permet, si l'on est identifier de rapporter un accide
 
 LINFO1212, groupe A09, Remience Arthur, Geyens Thomas, Montens d'Oosterwyck Bernard.
 # APPSINF
+# APPSINF
