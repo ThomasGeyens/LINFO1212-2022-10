@@ -1,11 +1,65 @@
+.html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.page {
+  position: relative;
+  background-color: #000000;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/album.png);
+  background-position: center;
+  background-size: 100%;
+  color: #ffffff;
+  padding: 1em;
+  text-align: center;
+  margin: 0 auto;
+  min-height: 100%;
+  width: 100%;
+  height: 90%;
+}
+
+.piedpage{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  width: 100%;
+  height: 80px;
+}
+
+.piedpage ul{
+  display: flex;
+}
+
+.piedpage ul li {
+  text-align: center;
+  display: block;
+  color: #fefefe;
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.2s;
+  margin: 0 5px;
+}
+
+.piedpage ul li:hover {
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fefefe;
+  background: #11101b;
+}
+
 .content-top {
   width:100%;
   margin:0 auto;
+  z-index: 1;
 }
 
 .report-link{
   display: inline-block;
   margin-left: 20px;
+  z-index: 1;
 }
 
 .date-holder{
@@ -15,43 +69,42 @@
 
 * {
   box-sizing: border-box;
+  z-index: 1;
 }
 
 .row {
   margin-top: 50px;
   margin-left: 10%;
+  height: 100px;
 }
 
 .column {
   float: left;
   width: 25%;
   padding: 10px;
+  height: 400px;
 }
 
 .row:after {
   content: "";
   display: table;
   clear: both;
+  z-index: 1;
+  
 }
+
 .button1 {
-  border: none;
-  color: white;
-  padding: 30px 80px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 12px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  background-color: rgb(255, 255, 255); 
-  color: black; 
-  border: 2px solid #5a4202;
+  display: block;
+  color: #fefefe;
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.2s;
+  margin: 0 5px;
 }
 
 
 .button1:hover {
-  background-color: #523800;
-  color: white;
+  background-color: #FF6347;
+  color: #fefefe;
 }
