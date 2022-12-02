@@ -1,75 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reportify</title>
         <link rel="stylesheet" href="/index.css">
         <link rel="stylesheet" href="/nav.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>RnR - Report 'N Repair</title>
+        <!--Import Google Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     </head>
 
     <body>
         <div class="navbar">
-          <h4 id="name-holder">
+          <div class="logo">Reportify</div>
+          <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <nav class="nav-bar">
+            <ul>
+              <li><a href="" class="active">Home</a></li>
+              <li><a href="">Catégories</a></li>
+              <li><a href="">Review</a></li>
+              <li><a href="#basdepage">Contact</a></li>
+              <li>
+                <h4 id="name-holder">
+                  <% if(user){ %>
+                    <a> <%= user.username %> </a>
+                  <% } else{ %>  
+                    <a href="/auth">Login</a>
+                  <% } %>
+                </h4>
+              </li>
+            </ul>
+            <!--<div class="search-container">
+              <form action="/search/process" method="post">
+                <input class="search-input" type="text" placeholder="search" name="keyword" value=''>
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>-->
+          </nav>
+        </div>
+
+        <script src="navbar/navbar.js"></script>
+        <p class="date-holder" id="date-holder"></p>
+        <div class="page" >
+          
+          <div class="row" id="premier-element">
+            <div class="column">
+              <h2>Chanson</h2>
+              <% for(var i=0; i < accidents.length; i++) { %>
+                <p><%= accidents[i].description %></p>
+              <% } %>
+            </div>
+            <div class="column">
+              <h2>Avis</h2>
+              <% for(var i=0; i < accidents.length; i++) { %>
+                <p><%= accidents[i].address %></p>
+              <% } %>
+            </div>
+            <div class="column">
+              <h2>Rapporté par</h2>
+              <% for(var i=0; i < repusers.length; i++) { %>
+                <p><%= repusers[i] %></p>
+              <% } %>
+            </div>
+            <div class="column">
+              <h2>Date</h2>
+              <% for(var i=0; i < accidents.length; i++) { %>
+                <p><%= accidents[i].createdAt %></p>
+              <% } %>
+            </div>
+          </div>
+          
+          <div id='status' class='invisible'><%= errormessage %></div>
+          <center>
             <% if(user){ %>
-              <a> <%= user.username %> </a>
-            <% } else{ %>  
-              <a href="/auth">Login</a>
-           <% } %>
-          </h4>
-          <div class="search-container">
-            <form action="/search/process" method="post">
-              <input class="search-input" type="text" placeholder="search" name="keyword" value=''>
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
-          <a id="logo-holder" href="/">
-            <img src="/images/RnR.png" height="30" alt="" loading="lazy"/>
-          </a>
-      </div>
-      <p class="date-holder" id="date-holder"></p>
-      <div class="content-wrapper">
-      
-        <div class="row">
-          <div class="column">
-            <h2>Chanson</h2>
-            <% for(var i=0; i < accidents.length; i++) { %>
-              <p><%= accidents[i].description %></p>
-           <% } %>
-          </div>
-          <div class="column">
-            <h2>Avis</h2>
-            <% for(var i=0; i < accidents.length; i++) { %>
-              <p><%= accidents[i].address %></p>
-           <% } %>
-          </div>
-          <div class="column">
-            <h2>Rapporté par</h2>
-            <% for(var i=0; i < repusers.length; i++) { %>
-              <p><%= repusers[i] %></p>
-           <% } %>
-          </div>
-          <div class="column">
-            <h2>Date</h2>
-            <% for(var i=0; i < accidents.length; i++) { %>
-              <p><%= accidents[i].createdAt %></p>
-           <% } %>
+              <div>
+                <button onclick="window.location.href='/report';" class="button1">Nouvelle Chanson</button>
+              </div>
+            <% }else{ %>
+              <a>Afin de noter vos propres musiques, veuillez vous connectez ou créer un compte.</a>
+            <% } %>
+          </center>
+          <div class="piedpage">
+            <a name="basdepage"></a>
+            <ul>
+              <li>Thomas Geyens: thomas.geyens@student.uclouvain.be</li>
+              <li>Arthur Remience: arthur.remience@student.uclouvain.be</li>
+              <li>Loris Dognaux: loris.dognaux@student.uclouvain.be</li>
+            </ul>
           </div>
         </div>
-      </div>
-      <div id='status' class='invisible'><%= errormessage %></div>
-      <center>
-        
-        <% if(user){ %>
-          <div class="button1">
-          <button onclick="window.location.href='/report';">Nouvelle Chanson</button>
-          </div>
-        <% }else{ %>
-          <a>Afin de noter vos propres musiques, veuillez vous connectez ou créer un compte.</a>
-        <% } %>
-        
-      </center>  
+
     </body>
 
     <script>
