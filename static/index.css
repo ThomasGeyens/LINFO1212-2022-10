@@ -6,8 +6,8 @@ html, body {
 
 .page {
   position: relative;
-  background-color: #000000;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/album.png);
+  /*background-color: #00000083;*/
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(images/album.png);
   background-position: center;
   background-size: 100%;
   color: #ffffff;
@@ -20,7 +20,7 @@ html, body {
 }
 
 .piedpage{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
