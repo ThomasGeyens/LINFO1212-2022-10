@@ -52,14 +52,14 @@
           <div class="row" id="premier-element">
             <div class="column">
               <h2>Chanson</h2>
-              <% for(var i=0; i < accidents.length; i++) { %>
-                <p><%= accidents[i].description %></p>
+              <% for(var i=0; i < songs.length; i++) { %>
+                <p><%= songs[i].description %></p>
               <% } %>
             </div>
             <div class="column">
               <h2>Avis</h2>
-              <% for(var i=0; i < accidents.length; i++) { %>
-                <p><%= accidents[i].address %></p>
+              <% for(var i=0; i < songs.length; i++) { %>
+                <p><%= songs[i].address %></p>
               <% } %>
             </div>
             <div class="column">
@@ -70,8 +70,8 @@
             </div>
             <div class="column">
               <h2>Date</h2>
-              <% for(var i=0; i < accidents.length; i++) { %>
-                <p><%= accidents[i].createdAt %></p>
+              <% for(var i=0; i < songs.length; i++) { %>
+                <p><%= songs[i].createdAt %></p>
               <% } %>
             </div>
           </div>

@@ -35,13 +35,13 @@ db.testCon();
 
 app.get('/', async function (req, res) {
     res.locals.user = req.user;
-    accidents = await db.getAccidents()
+    songs = await db.getSongs()
     repusers=[];
-    for (const element of accidents) {
+    for (const element of songs) {
         repuser = await db.User.findByPk(element.UserId)
         repusers.push(repuser.username);
     };
-    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", accidents: accidents, repusers:repusers});
+    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers});
 });
 
 app.get('/auth', (req, res) => {
@@ -56,7 +56,7 @@ app.get('/report', (req, res) => {
 var urlencodeParser = bodyParser.urlencoded({ extended: false})
 
 app.post('/report', urlencodeParser,function(req, res){
-    db.pushAccident(req.body.adr, req.body.desc, req.user.id);
+    db.pushSong(req.body.adr, req.body.desc, req.body.rat, req.body.gnr, req.user.id);
     res.redirect("/");
  });
 
@@ -67,7 +67,7 @@ app.post('/report', urlencodeParser,function(req, res){
   });
 
 const { Op } = require("sequelize");
-const { Accident } = require('./db.js');
+const { Song } = require('./db.js');
  app.get('/search/:keyword', async function(req, res) {
     var keyword;
     keyword = req.params.keyword;
@@ -75,19 +75,19 @@ const { Accident } = require('./db.js');
         where: {
           [Op.or]: [
             { 'description': { [Op.like]: '%' + keyword + '%' } },
-            { '$address$': { [Op.like]: '%' + keyword + '%' } }
+            { '$name_artist$': { [Op.like]: '%' + keyword + '%' } }
           ]
         }
     };
 
-    searched = await Accident.findAll(options);
+    searched = await Song.findAll(options);
     repusers=[];
     for (const element of searched) {
         repuser = await db.User.findByPk(element.UserId)
         repusers.push(repuser.username);
     };
     res.locals.user = req.user;
-    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", accidents: searched, repusers:repusers});
+    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: searched, repusers:repusers});
 });
 
 https.createServer({

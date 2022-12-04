@@ -4,15 +4,23 @@ const sequelize = new Sequelize({
   storage: 'db.sqlite'
 });
 
-const Accident = sequelize.define('Accident', {
+const Song = sequelize.define('Song', {
   // Model attributes are defined here
-  address: {
+  name_artist: {
     type: Sequelize.DataTypes.STRING,
     allowNull: false
   },
   description: {
     type: Sequelize.DataTypes.STRING,
     allowNull: false
+  },
+  rating: {
+    type: Sequelize.DataTypes.INTEGER,
+    allowNull: true   //test 
+  },
+  genre: {
+    type: Sequelize.DataTypes.STRING,
+    allowNull: true //test
   }
 }, {
   // Other model options go here
@@ -40,8 +48,8 @@ const User = sequelize.define('User', {
   // Other model options go here
 });
 
-User.hasMany(Accident);
-Accident.belongsTo(User);
+User.hasMany(Song);
+Song.belongsTo(User);
 
 module.exports = {
   testCon: async function () {
@@ -53,23 +61,23 @@ module.exports = {
     }
   },
 
-  pushAccident: async function (addr, desc, userId) {
-    const newAccident = await Accident.create({ address: addr, description: desc, UserId: userId});
-    console.log('New accident was saved to the database!');
+  pushSong: async function (na_art, desc, rat, gnr, userId) {
+    const newSong = await Song.create({ name_artist: na_art, description: desc, rating: rat, genre: gnr, UserId: userId});
+    console.log('New Song was saved to the database!');
   },
 
   getUser: async function (username) {
     return User.findOne({where: { username: username }});
   },
-  getAccidents: async function () {
-    return Accident.findAll();
+  getSongs: async function () {
+    return Song.findAll();
   },
   User,
-  Accident
+  Song
 };
 
 async function syncr () {
   await sequelize.sync({ force: true });
 }
 
-//syncr();
+//syncr(); //Pour faire un changement dans la base de donnée il est nécessaire d'enelever ce comm
