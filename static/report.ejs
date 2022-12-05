@@ -1,70 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/nav.css">
         <link rel="stylesheet" href="/report.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Rapporter - Report 'N Repair</title>
+        <title>Reportify</title>
     </head>
 
     <body>
-        <div class="navbar">
-          <h4 id="name-holder">
-            <% if(user){ %>
-              <a> <%= user.username %> </a>
-            <% } else{ %>  
-              <a href="/auth">Login</a>
-           <% } %>
-          </h4>
-          <div class="search-container">
-            <form>
-              <input class="search-input" type="text" placeholder="Search.." name="search">
+      <div class="navbar">
+        <div class="logo">Reportify</div>
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+          <ul>
+            <li><a href="" class="active">Home</a></li>
+            <li><a href="">Catégories</a></li>
+            <li><a href="">Review</a></li>
+            <li><a href="#basdepage">Contact</a></li>
+            <li>
+              <h4 id="name-holder">
+                <% if(user){ %>
+                  <a> <%= user.username %> </a>
+                <% } else{ %>  
+                  <a href="/auth">Login</a>
+                <% } %>
+              </h4>
+            </li>
+          </ul>
+          <!--<div class="search-container">
+            <form action="/search/process" method="post">
+              <input class="search-input" type="text" placeholder="search" name="keyword" value=''>
               <button type="submit"><i class="fa fa-search"></i></button>
             </form>
-          </div>
-          <a id="logo-holder" href="/">
-            <img src="images/RnR.png" height="30" alt="" loading="lazy" />
-          </a>
+          </div>-->
+        </nav>
       </div>
 
-      <div class="content-wrapper" id="reportacc">
-        <center><i><h1>Notez donc votre chanson !</h1></i></center>
-
-        <form method="post">
-
-            <div class="container" style="display: inline;">
-              <center>
-              <label for="desc"><b style="font-family: Arial">Le nom de votre musique</b></label>
-              <input type="text" id="formfield" placeholder="Entrer description" name="desc" required>
-              </center>
-
-              <center>
-              <label for="adr"><b style="font-family: Arial">Votre avis sur celle-ci</b></label>
-              <input type="text" placeholder="Entrer adresse" name="adr" required>
-              </center>
-
-              <center>
-                <label for="note"><b style="font-family: Arial;">Une note sur 10 ?</b></label>
-                <select name="note" id="note" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                </select>
-              </center>
-            </div>
-          
+      <div class="page">
+        <center><h1>Notez donc votre chanson !</h1></center>
+        <div class="titre">
+          <form action="post">
+            <h2 class="h2">Titre de la chanson :</h2>
+            <label for="desc"></label>
+            <input type="text" id="formfield" placeholder="Entrer Titre" name="desc" required>
           </form>
-          <center><button type="submit" id="button">Valider</button></center>
-      </div>
+        </div>
+        <div class="avis">
+          <form action="post">
+            <h2 class="h2">Avis sur la chanson :</h2>
+            <label for="desc"></label>
+            <input type="text" id="formfield" placeholder="Entrer Avis" required>
+          </form>
+        </div>
+        <center><button type="submit" id="button">Valider</button></center>
+
+        <footer>
+          <a name="basdepage"></a>
+          <ul>
+            <li>Thomas Geyens: thomas.geyens@student.uclouvain.be</li>
+            <li>Arthur Remience: arthur.remience@student.uclouvain.be</li>
+            <li>Loris Dognaux: loris.dognaux@student.uclouvain.be</li>
+          </ul>
+        </div>
+        
+      </footer>
       
     </body>
 </html>
