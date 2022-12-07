@@ -6,8 +6,8 @@ html, body {
 
 .page {
   position: relative;
-  background-color: #000000;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(images/album.png);
+  background-color: #6d6d6d;
+  /*background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/album.png);*/
   background-position: center;
   background-size: 100%;
   color: #ffffff;
@@ -15,8 +15,16 @@ html, body {
   text-align: center;
   margin: 0 auto;
   min-height: 100%;
-  width: 100%;
-  height: 90%;
+  width: auto;
+  height: auto;
+}
+
+.chart1::after {
+  background-color: #11101b;
+}
+
+.chart2::after {
+  background-color: #11101b;
 }
 
 .piedpage{
@@ -107,4 +115,4 @@ html, body {
 .button1:hover {
   background-color: #FF6347;
   color: #fefefe;
-}
+} 

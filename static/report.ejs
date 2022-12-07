@@ -11,7 +11,9 @@
 
     <body>
       <div class="navbar">
-        <div class="logo">Reportify</div>
+        <a id="logo-holder" href="/">
+          <img src="images/Reportify.png" height="300" alt="" loading="lazy">
+        </a>
         <div class="hamburger">
           <div class="line"></div>
           <div class="line"></div>
@@ -42,28 +44,24 @@
         </nav>
       </div>
 
-      <div class="page">
+    <div class="page">
         <center><h1>Notez donc votre chanson !</h1></center>
-        <div class="titre">
-          <form action="post">
+      <form method="post">
+        <div class="titre"> 
             <h2>Titre de la chanson :</h2>
-            <label for="desc"></label>
-            <input type="text" id="formfield" placeholder="Entrer Titre" name="desc" required>
-          </form>
+            <label for="na_art"></label>
+            <input type="text" name="na_art" id="formfield" placeholder="Entrer title and artist" required>
         </div>
         <div class="avis">
-          <form action="post">
             <h2>Avis sur la chanson :</h2>
             <label for="desc"></label>
-            <input type="text" id="formfield" placeholder="Entrer Avis" required>
-          </form>
+            <input type="text" name="desc" id="formfield" placeholder="Entrer descriprion" required>
         </div>
         <div class="note">
-          <form action="post">
             <div class="custom-select">
               <h2>Une note sur 10 ?</h2>
-              <label for="note"></label>
-              <select name="note" id="note" required>
+              <label for="rat"></label>
+              <select name="rat" id="note" required>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -75,15 +73,16 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
               </select>
+              <a></a>
+              <a></a>
+              <a></a>
             </div>
-          </form>
         </div>
         <div class="genre">
-          <form action="post">
             <div class="custom-select">
               <h2>Genres :
-              <label for="genre"></label>
-              <select name="genre" id="genre" required>
+              <label for="gnr"></label>
+              <select name="gnr" id="genre" required>
                 <option value="1">Pop</option>
                 <option value="2">Rap</option>
                 <option value="3">Electro</option>
@@ -94,9 +93,12 @@
               </select>
               </h2>
             </div>
-          </form>
         </div>
-        <center><button type="submit" id="button">Valider</button></center>
+        <div class="button">
+          <center><button type="submit" id="button">Valider</button></center>
+        </div>    
+      </form>
+    </div>
 
         <footer>
           <a name="basdepage"></a>

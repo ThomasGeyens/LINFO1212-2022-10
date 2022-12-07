@@ -56,7 +56,7 @@ app.get('/report', (req, res) => {
 var urlencodeParser = bodyParser.urlencoded({ extended: false})
 
 app.post('/report', urlencodeParser,function(req, res){
-    db.pushSong(req.body.adr, req.body.desc, req.body.rat, req.body.gnr, req.user.id);
+    db.pushSong(req.body.na_art, req.body.desc, req.body.rat, req.body.gnr, req.user.id);
     res.redirect("/");
  });
 

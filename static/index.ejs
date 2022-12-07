@@ -14,7 +14,10 @@
 
     <body style="background-color: #00000083;">
         <div class="navbar">
-          <div class="logo">Reportify</div>
+          <a id="logo-holder" href="/">
+            <img src="images/Reportify.png" height="300" alt="" loading="lazy">
+          </a>
+          
           <div class="hamburger">
             <div class="line"></div>
             <div class="line"></div>
@@ -48,7 +51,7 @@
         <script src="navbar/navbar.js"></script>
         <p class="date-holder" id="date-holder"></p>
         <div class="page" >
-          
+          <!--
           <div class="row" id="premier-element">
             <div class="column">
               <h2>Chanson</h2>
@@ -74,15 +77,12 @@
                 <p><%= songs[i].createdAt %></p>
               <% } %>
             </div>
-          </div>
+          </div>-->
           <div id='status' class='invisible'><%= errormessage %></div>
           <center>
             <% if(user){ %>
-              <div>
-                <button onclick="window.location.href='/report';" class="button1">Nouvelle Chanson</button>
-                <a></a>
-              </div>
-              <canvas id="myChart"></canvas>
+            <div class="chart1">  
+              <canvas id="myChart" height="600" width="600"></canvas>
             
               
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -125,22 +125,23 @@
                         }]
                       },
                       options: {
-                        scales: {
-                          y: {
-                            beginAtZero: true
-                          }
-                        }
+                        responsive: false,
                       }
                     });
               </script>
-              <div class="piedpage">
+            </div>
+              <div>
+                <button onclick="window.location.href='/report';" class="button1">Nouvelle Chanson</button>
+              </div>
+              <!--<div class="piedpage">
                       <a name="basdepage"></a>
                       <ul>
                         <li>Thomas Geyens: thomas.geyens@student.uclouvain.be</li>
                         <li>Arthur Remience: arthur.remience@student.uclouvain.be</li>
                         <li>Loris Dognaux: loris.dognaux@student.uclouvain.be</li>
                       </ul>
-                    </div>
+              </div>-->
+          
             <% }else{ %>
               <a>Afin de noter vos propres musiques, veuillez vous connectez ou créer un compte.</a>
             <% } %>
