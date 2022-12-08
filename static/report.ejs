@@ -48,20 +48,20 @@
         <center><h1>Notez donc votre chanson !</h1></center>
       <form method="post">
         <div class="titre"> 
-            <h2>Titre de la chanson :</h2>
+          <h2 class="h2-left">Titre de la chanson :</h2>
             <label for="na_art"></label>
             <input type="text" name="na_art" id="formfield" placeholder="Entrer title and artist" required>
         </div>
         <div class="avis">
-            <h2>Avis sur la chanson :</h2>
+          <h2 class="h2-left">Avis sur la chanson :</h2>
             <label for="desc"></label>
             <input type="text" name="desc" id="formfield" placeholder="Entrer descriprion" required>
         </div>
         <div class="note">
             <div class="custom-select">
-              <h2>Une note sur 10 ?</h2>
+              <h2 class="h2-right-2">Une note sur 10 ?</h2>
               <label for="rat"></label>
-              <select name="rat" id="note" required>
+              <select name="rat" id="note" required class="select-note">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -80,9 +80,9 @@
         </div>
         <div class="genre">
             <div class="custom-select">
-              <h2>Genres :
+              <h2 class="h2-right-1">Genres :</h2>
               <label for="gnr"></label>
-              <select name="gnr" id="genre" required>
+              <select name="gnr" id="genre" required class="select-genre">
                 <option value="1">Pop</option>
                 <option value="2">Rap</option>
                 <option value="3">Electro</option>
@@ -91,25 +91,22 @@
                 <option value="6">RnB</option>
                 <option value="7">Jazz</option>
               </select>
-              </h2>
             </div>
         </div>
         <div class="button">
           <center><button type="submit" id="button">Valider</button></center>
         </div>    
       </form>
+      <footer>
+        <a name="basdepage"></a>
+        <ul>
+          <li>Thomas Geyens: thomas.geyens@student.uclouvain.be</li>
+          <li>Arthur Remience: arthur.remience@student.uclouvain.be</li>
+          <li>Loris Dognaux: loris.dognaux@student.uclouvain.be</li>
+        </ul>
+      </div>
+    </footer>
     </div>
-
-        <footer>
-          <a name="basdepage"></a>
-          <ul>
-            <li>Thomas Geyens: thomas.geyens@student.uclouvain.be</li>
-            <li>Arthur Remience: arthur.remience@student.uclouvain.be</li>
-            <li>Loris Dognaux: loris.dognaux@student.uclouvain.be</li>
-          </ul>
-        </div>
-        
-      </footer>
       
     </body>
 </html>
