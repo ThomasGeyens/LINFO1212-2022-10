@@ -79,7 +79,7 @@
             </div>
           </div>-->
           <div id='status' class='invisible'><%= errormessage %></div>
-          <center>
+          
             <% if(user){ %>
             <div class="chart1">  
               <canvas id="myChart" height="600" width="600"></canvas>
@@ -143,9 +143,11 @@
               </div>-->
           
             <% }else{ %>
-              <a>Afin de noter vos propres musiques, veuillez vous connectez ou créer un compte.</a>
+              <h2 class="h2-not-users">Afin de noter vos propres musiques, veuillez vous connectez ou créer un compte</h2>
+              <div class="cadre1"><h1>?</h1></div>
+              <div class="cadre2"><h1>?</h1></div>
             <% } %>
-          </center>
+          
         </div>
     </body>
 

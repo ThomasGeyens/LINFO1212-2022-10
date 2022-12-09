@@ -21,9 +21,9 @@
         </div>
         <nav class="nav-bar">
           <ul>
-            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="">Catégories</a></li>
-            <li><a href="/report">Review</a></li>
+            <li><a href="/report" class="active">Review</a></li>
             <li><a href="#basdepage">Contact</a></li>
             <li>
               <h4 id="name-holder">
@@ -61,7 +61,7 @@
             <div class="custom-select">
               <h2 class="h2-right-2">Une note sur 10 ?</h2>
               <label for="rat"></label>
-              <select name="rat" id="note" required class="select-note">
+              <select name="rat" id="note" required class="bottom">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -82,7 +82,7 @@
             <div class="custom-select">
               <h2 class="h2-right-1">Genres :</h2>
               <label for="gnr"></label>
-              <select name="gnr" id="genre" required class="select-genre">
+              <select name="gnr" id="genre" required class="top">
                 <option value="1">Pop</option>
                 <option value="2">Rap</option>
                 <option value="3">Electro</option>
@@ -94,7 +94,7 @@
             </div>
         </div>
         <div class="button">
-          <center><button type="submit" id="button">Valider</button></center>
+          <center><button type="submit" id="button" class="valider">Valider</button></center>
         </div>    
       </form>
       <footer>

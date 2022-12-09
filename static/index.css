@@ -19,6 +19,45 @@ html, body {
   height: auto;
 }
 
+.cadre1{
+  float: left;
+  width: 40%;
+  height: 500px;
+  background: rgba(12, 12, 12, 0.758);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0.3px);
+  -webkit-backdrop-filter: blur(0.3px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin: 80px auto;
+  margin-left: 50px;
+
+}
+
+.cadre2{
+  float: right;
+  width: 40%;
+  height: 500px;
+  background: rgba(12, 12, 12, 0.758);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0.3px);
+  -webkit-backdrop-filter: blur(0.3px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin: 80px auto;
+  margin-right: 50px;
+}
+
+h1{
+  padding-top: 30%;
+  font-size:150px;
+}
+
+.h2-not-users{
+  text-align: center;
+
+}
+
 .chart1::after {
   background-color: #11101b;
 }

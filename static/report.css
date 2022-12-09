@@ -64,7 +64,7 @@ form{
   padding: 10px 25px;
   border-radius: 50px;
   transition: 0.2s;
-  margin-top: -350px;
+  margin-top: -430px;
   background-color: #FF6347;
 }
 
@@ -76,7 +76,7 @@ form{
   padding: 10px 25px;
   border-radius: 50px;
   transition: 0.2s;
-  margin-top: -600px;
+  margin-top: -672px;
   margin-right: 95px;
   background-color: #FF6347;
 }
@@ -145,8 +145,23 @@ label{
   margin-right: 250px;
 }
 
-.select-genre{
-  margin-top: 30px;
+select{
+  position: relative;
+}
+
+select.top{
+  top: 150px;
+  right: 60px;
+  appearance: none;
+}
+
+select.bottom{
+  top: 450px;
+  right:60px;
+}
+
+.valider{
+  
 }
 
 footer{
