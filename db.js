@@ -60,12 +60,25 @@ module.exports = {
       console.error('Unable to connect to the database:', error);
     }
   },
-
   pushSong: async function (na_art, desc, rat, gnr, userId) {
     const newSong = await Song.create({ name_artist: na_art, description: desc, rating: rat, genre: gnr, UserId: userId});
     console.log('New Song was saved to the database!');
   },
 
+  getAverageRatingPerGenrePerUser: async function(userId) {
+    const averageRatingsPerGenrePerUser = await Song.findAll({
+      attributes: [
+        'UserId',
+        'genre',
+        [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating']
+      ],
+      where: { userId: userId },
+      group: ['UserId', 'genre']
+    });
+    console.log("average is ....",averageRatingsPerGenrePerUser)
+    return averageRatingsPerGenrePerUser;
+  },
+  
   getUser: async function (username) {
     return User.findOne({where: { username: username }});
   },

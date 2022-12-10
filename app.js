@@ -35,13 +35,15 @@ db.testCon();
 
 app.get('/', async function (req, res) {
     res.locals.user = req.user;
+    const userId = process.getuid();
+    const averageRatingsPerGenrePerUser = await db.getAverageRatingPerGenrePerUser(userId);
     songs = await db.getSongs()
     repusers=[];
     for (const element of songs) {
         repuser = await db.User.findByPk(element.UserId)
         repusers.push(repuser.username);
     };
-    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers});
+    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers, averageRatingsPerGenrePerUser:averageRatingsPerGenrePerUser},);
 });
 
 app.get('/auth', (req, res) => {
@@ -67,7 +69,7 @@ app.post('/report', urlencodeParser,function(req, res){
   });
 
 const { Op } = require("sequelize");
-const { Song } = require('./db.js');
+const { Song, getUser, averageRatingsPerGenrePerUser } = require('./db.js');
  app.get('/search/:keyword', async function(req, res) {
     var keyword;
     keyword = req.params.keyword;
