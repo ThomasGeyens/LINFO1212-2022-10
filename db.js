@@ -65,19 +65,106 @@ module.exports = {
     console.log('New Song was saved to the database!');
   },
 
-  getAverageRatingPerGenrePerUser: async function(userId) {
-    const averageRatingsPerGenrePerUser = await Song.findAll({
+  getAverageRatingForPop: async function(userId) {
+    return Song.findAll({
       attributes: [
         'UserId',
         'genre',
         [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating']
       ],
-      where: { userId: userId },
+      where: { 
+        userId: userId,
+        genre: "Pop" 
+      },
       group: ['UserId', 'genre']
     });
-    console.log("average is ....",averageRatingsPerGenrePerUser)
-    return averageRatingsPerGenrePerUser;
   },
+
+  getAverageRatingForRap: async function(userId) {
+    return Song.findAll({
+      attributes: [
+        'UserId',
+        'genre',
+        [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating']
+      ],
+      where: { 
+        userId: userId,
+        genre: "Rap" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  getAverageRatingForElectro: async function(userId) {
+    return Song.findAll({
+      attributes: [
+        'UserId',
+        'genre',
+        [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating']
+      ],
+      where: { 
+        userId: userId,
+        genre: "Electro" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  getAverageRatingForRock: async function(userId) {
+    return Song.findAll({
+      attributes: [
+        'UserId',
+        'genre',
+        [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating']
+      ],
+      where: { 
+        userId: userId,
+        genre: "Rock" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  getAverageRatingForClassique: async function(userId) {
+    return Song.findAll({
+      attributes: [
+        'UserId',
+        'genre',
+        [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating']
+      ],
+      where: { 
+        userId: userId,
+        genre: "Classique" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  getAverageRatingForRnB: async function(userId) {
+    return Song.findAll({
+      attributes: [
+        'UserId',
+        'genre',
+        [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating']
+      ],
+      where: { 
+        userId: userId,
+        genre: "RnB" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  getAverageRatingForJazz: async function(userId) {
+    return Song.findAll({
+      attributes: [
+        'UserId',
+        'genre',
+        [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating']
+      ],
+      where: { 
+        userId: userId,
+        genre: "Jazz" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  
   
   getUser: async function (username) {
     return User.findOne({where: { username: username }});

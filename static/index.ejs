@@ -79,31 +79,49 @@
             </div>
           </div>-->
           <div id='status' class='invisible'><%= errormessage %></div>
-          
             <% if(user){ %>
             <div class="cadre1"></div>
             <div class="cadre2"></div>
             <div class="chart1"> 
-              const averageRatingsPerGenrePerUser = <%= averageRatingsPerGenrePerUser %>;
               <canvas id="myChart" height="600" width="600"></canvas>
             
               
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-              
+              <a id="pop_rat"><%=pop_rat %></a>
+              <a id="jazz_rat"><%=jazz_rat%> </a>
+              <a id="classique_rat"> <%=classique_rat %></a>
+              <a id="rock_rat"> <%=rock_rat %></a>
+              <a id="rnb_rat"> <%=rnb_rat%> </a>
+              <a id="rap_rat"> <%=rap_rat %></a>
+              <a id="electro_rat"> <%=electro_rat %></a>
               <script>
+                  //var myVars = require('./app.js');
+                  //var x = myVars.pop_rating;
+                  
                     const ctx = document.getElementById('myChart');
-                    console.log(averageRatingsPerGenrePerUser)
                     new Chart(ctx, {
                       type: 'radar',
                       data: {
-                        labels: averageRatingsPerGenrePerUser.map(genre => genre.genre),
+                        labels: ["Pop", "Rock", "Jazz", "RnB", "Classique", "Rap", "Electro"],
                         datasets: [{
                           label: 'Average Rating',
-                          data: averageRatingsPerGenrePerUser.map(genre => genre.averageRating)
+                          //data: [pop_rat, rock_rat, jazz_rat, rnb_rat, classique_rat, rap_rat, electro_rat],
+                          data: [4, 3, 7, 9, 1, 8, 7],
+                          fill: true,
+                          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                          borderColor: 'rgb(255, 99, 132)',
+                          pointBackgroundColor: 'rgb(255, 99, 132)',
+                          pointBorderColor: '#fff',
+                          pointHoverBackgroundColor: '#fff',
+                          pointHoverBorderColor: 'rgb(255, 99, 132)'
                         }]
                       },
                       options: {
-                        responsive: false,
+                        elements: {
+                          line: {
+                            borderWidth: 3
+                          }
+                        }
                       }
                     });
               </script>

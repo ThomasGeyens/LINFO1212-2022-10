@@ -35,15 +35,105 @@ db.testCon();
 
 app.get('/', async function (req, res) {
     res.locals.user = req.user;
-    const userId = process.getuid();
-    const averageRatingsPerGenrePerUser = await db.getAverageRatingPerGenrePerUser(userId);
+
+
+    let pop_rat = 0;
+    let rap_rat = 0;
+    let electro_rat = 0;
+    let jazz_rat = 0;
+    let rnb_rat = 0;
+    let rock_rat = 0;
+    let classique_rat = 0;
+    //average rating for pop
+    const averageRatingForPop = await db.getAverageRatingForPop(1);
+    const pop_song = averageRatingForPop[0];
+    if (pop_song==undefined){
+        pop_rat += 0;
+    }else{
+        pop_rat += pop_song.dataValues.averageRating;
+    }
+    console.log("should be 5.3", pop_rat)
+    //average rating for rap
+    const averageRatingForRap = await db.getAverageRatingForRap(1);
+    const rap_song = averageRatingForRap[0];
+    if (rap_song==undefined){
+        rap_rat += 0;
+    }else{
+        rap_rat += rap_song.dataValues.averageRating;
+    }
+    console.log("should be 0", rap_rat)
+    //average rating for electro
+    const averageRatingForElectro = await db.getAverageRatingForElectro(1);
+    const electro_song = averageRatingForElectro[0];
+    if (electro_song==undefined){
+        electro_rat += 0;
+    }else{
+        electro_rat += electro_song.dataValues.averageRating;
+    }
+    
+    //average rating for rock
+    const averageRatingForRock = await db.getAverageRatingForRock(1);
+    const rock_song = averageRatingForRock[0];
+    if (rock_song==undefined){
+        rock_rat += 0;
+    }else{
+        rock_rat += rock_song.dataValues.averageRating;
+    }
+    
+    //average rating for classique
+    const averageRatingForClassique = await db.getAverageRatingForClassique(1);
+    const classique_song = averageRatingForClassique[0];
+    if (classique_song==undefined){
+        classique_rat += 0;
+    }else{
+        classique_rat += classique_song.dataValues.averageRating;
+    }
+    
+    //average rating for rnb
+    const averageRatingForRnB = await db.getAverageRatingForRnB(1);
+    const rnb_song = averageRatingForRnB[0];
+    if (rnb_song==undefined){
+        rnb_rat += 0;
+    }else{
+        rnb_rat += rnb_song.dataValues.averageRating;
+    }
+    
+    //average rating for jazz
+    const averageRatingForJazz = await db.getAverageRatingForJazz(1);
+    const jazz_song = averageRatingForJazz[0];
+    if (jazz_song==undefined){
+        jazz_rat += 0;
+    }else{
+        jazz_rat += jazz_song.dataValues.averageRating;
+    }
+   console.log("should be 7", jazz_rat)
+
+
     songs = await db.getSongs()
     repusers=[];
     for (const element of songs) {
         repuser = await db.User.findByPk(element.UserId)
         repusers.push(repuser.username);
     };
-    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers, averageRatingsPerGenrePerUser:averageRatingsPerGenrePerUser},);
+
+    var pop_rating = pop_rat;
+    var rock_rating = rock_rat;
+    var jazz_rating = jazz_rat;
+    var electro_rating = electro_rat;
+    var rap_rating = rap_rat;
+    var classique_rating = classique_rat;
+    var rnb_rating = rnb_rat;
+
+    exports.pop_rating = pop_rating;
+    exports.rock_rating = rock_rating;
+    exports.jazz_rating = jazz_rating;
+    exports.electro_rating = electro_rating;
+    exports.rap_rating = rap_rating;
+    exports.classique_rating = classique_rating;
+    exports.rnb_rating = rnb_rating;
+
+
+    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers, pop_rat:pop_rat, rock_rat:rock_rat, jazz_rat:jazz_rat, classique_rat:classique_rat, electro_rat:electro_rat, rnb_rat:rnb_rat, rap_rat:rap_rat},);
 });
 
 app.get('/auth', (req, res) => {
