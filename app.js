@@ -116,24 +116,11 @@ app.get('/', async function (req, res) {
         repusers.push(repuser.username);
     };
 
-    var pop_rating = pop_rat;
-    var rock_rating = rock_rat;
-    var jazz_rating = jazz_rat;
-    var electro_rating = electro_rat;
-    var rap_rating = rap_rat;
-    var classique_rating = classique_rat;
-    var rnb_rating = rnb_rat;
+    const data = [pop_rat,rock_rat,jazz_rat,classique_rat,rap_rat, rnb_rat,electro_rat];
+    console.log("this should be the data", data)
+    //module.exports = [pop_rat, rock_rat, jazz_rat, classique_rat, rap_rat, rnb_rat, electro_rat];
 
-    exports.pop_rating = pop_rating;
-    exports.rock_rating = rock_rating;
-    exports.jazz_rating = jazz_rating;
-    exports.electro_rating = electro_rating;
-    exports.rap_rating = rap_rating;
-    exports.classique_rating = classique_rating;
-    exports.rnb_rating = rnb_rating;
-
-
-    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers, pop_rat:pop_rat, rock_rat:rock_rat, jazz_rat:jazz_rat, classique_rat:classique_rat, electro_rat:electro_rat, rnb_rat:rnb_rat, rap_rat:rap_rat},);
+    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers, pop_rat:pop_rat, rock_rat:rock_rat, jazz_rat:jazz_rat, classique_rat:classique_rat, electro_rat:electro_rat, rnb_rat:rnb_rat, rap_rat:rap_rat, data:data});
 });
 
 app.get('/auth', (req, res) => {
