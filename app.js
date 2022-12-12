@@ -35,6 +35,9 @@ db.testCon();
 
 app.get('/', async function (req, res) {
     res.locals.user = req.user;
+    const bdtest = await db.getUser("thomas");
+    console.log("req.user : ", req.user)
+    console.log("getusertest: ", bdtest)
 
 
     var pop_rat = 0;
@@ -50,30 +53,24 @@ app.get('/', async function (req, res) {
     var pop_song = averageRatingForPop[0];
     if (pop_song==undefined){
         pop_rat += 0;
-        data.push(pop_rat);
     }else{
         pop_rat += pop_song.dataValues.averageRating;
-        data.push(pop_rat);
     }
     //average rating for rap
     var averageRatingForRap = await db.getAverageRatingForRap(1);
     var rap_song = averageRatingForRap[0];
     if (rap_song==undefined){
         rap_rat += 0;
-        data.push(rap_rat);
     }else{
         rap_rat += rap_song.dataValues.averageRating;
-        data.push(rap_rat);
     }
     //average rating for electro
     var averageRatingForElectro = await db.getAverageRatingForElectro(1);
     var electro_song = averageRatingForElectro[0];
     if (electro_song==undefined){
         electro_rat += 0;
-        data.push(electro_rat);
     }else{
         electro_rat += electro_song.dataValues.averageRating;
-        data.push(electro_rat);
     }
     
     //average rating for rock
@@ -81,21 +78,16 @@ app.get('/', async function (req, res) {
     var rock_song = averageRatingForRock[0];
     if (rock_song==undefined){
         rock_rat += 0;
-        data.push(rock_rat);
     }else{
         rock_rat += rock_song.dataValues.averageRating;
-        data.push(rock_rat);
     }
-    
     //average rating for classique
     var averageRatingForClassique = await db.getAverageRatingForClassique(1);
     var classique_song = averageRatingForClassique[0];
     if (classique_song==undefined){
         classique_rat += 0;
-        data.push(classique_rat);
     }else{
         classique_rat += classique_song.dataValues.averageRating;
-        data.push(classique_rat);
     }
     
     //average rating for rnb
@@ -103,10 +95,8 @@ app.get('/', async function (req, res) {
     var rnb_song = averageRatingForRnB[0];
     if (rnb_song==undefined){
         rnb_rat += 0;
-        data.push(rnb_rat);
     }else{
         rnb_rat += rnb_song.dataValues.averageRating;
-        data.push(rnb_rat);
     }
     
     //average rating for jazz
@@ -114,10 +104,8 @@ app.get('/', async function (req, res) {
     var jazz_song = averageRatingForJazz[0];
     if (jazz_song==undefined){
         jazz_rat += 0;
-        data.push(jazz_rat);
     }else{
         jazz_rat += jazz_song.dataValues.averageRating;
-        data.push(jazz_rat);
     }
 
 
@@ -128,8 +116,8 @@ app.get('/', async function (req, res) {
         repusers.push(repuser.username);
     };
 
-    //var data = [];
-    //data = data.push(pop_rat,rock_rat,jazz_rat,classique_rat,rap_rat, rnb_rat,electro_rat);
+    var data = [];
+    data.push(pop_rat,rock_rat,jazz_rat,classique_rat,rap_rat, rnb_rat,electro_rat);
     console.log("should be int", typeof(data[0]))
     console.log("data is:", data)
     //console.log(repusers)
@@ -161,7 +149,7 @@ app.post('/report', urlencodeParser,function(req, res){
   });
 
 const { Op } = require("sequelize");
-const { Song, getUser, averageRatingsPerGenrePerUser } = require('./db.js');
+const { Song, getUser, averageRatingsPerGenrePerUser, User } = require('./db.js');
  app.get('/search/:keyword', async function(req, res) {
     var keyword;
     keyword = req.params.keyword;
