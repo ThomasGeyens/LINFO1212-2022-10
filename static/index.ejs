@@ -85,12 +85,12 @@
             <div class="chart1"> 
               <canvas id="myChart" height="600" width="600"></canvas>
             
-              <a><%= data %></a>
+              <a id="data"><%= [data] %></a>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
               <script>
-                const data = <%= data %>;
               </script>
               <script>
+                    console.log("please appear",data)
                     const ctx = document.getElementById('myChart');
                     new Chart(ctx, {
                       type: 'radar',
@@ -100,7 +100,7 @@
                         {
                           label: 'Average Rating',
                           //data: [pop_rat, rock_rat, jazz_rat, rnb_rat, classique_rat, rap_rat, electro_rat],
-                          //data: [4.3333333333, 3, 7, 9, 1, 8, 7],
+                          //++data: [4, 3, 7, 9, 1, 8, 7],
                           data: data,
                           fill: true,
                           backgroundColor: 'rgba(255, 99, 132, 0.2)',
