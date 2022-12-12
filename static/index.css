@@ -22,8 +22,8 @@ html, body {
 .cadre1{
   float: left;
   width: 40%;
-  height: 500px;
-  background: rgba(12, 12, 12, 0.758);
+  height: 550px;
+  background: rgba(12, 12, 12, 0.863);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(0.3px);
   -webkit-backdrop-filter: blur(0.3px);
@@ -37,8 +37,8 @@ html, body {
 .cadre2{
   float: right;
   width: 40%;
-  height: 500px;
-  background: rgba(12, 12, 12, 0.758);
+  height: 550px;
+  background: rgba(12, 12, 12, 0.863);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(0.3px);
   -webkit-backdrop-filter: blur(0.3px);

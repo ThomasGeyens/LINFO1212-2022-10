@@ -80,17 +80,16 @@
           </div>-->
           <div id='status' class='invisible'><%= errormessage %></div>
             <% if(user){ %>
-            <div class="cadre1"></div>
-            <div class="cadre2"></div>
-            <div class="chart1"> 
-              <canvas id="myChart" height="600" width="600"></canvas>
+            <div class="cadre1">
+
+              <div class="chart1"> 
+              <canvas id="myChart" height="250" width="350"></canvas>
             
-              <a id="data"><%= [data] %></a>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
               <script>
               </script>
               <script>
-                    console.log("please appear",data)
+                    var data = <%- JSON.stringify(data)%>;
                     const ctx = document.getElementById('myChart');
                     new Chart(ctx, {
                       type: 'radar',
@@ -99,16 +98,14 @@
                         datasets: [
                         {
                           label: 'Average Rating',
-                          //data: [pop_rat, rock_rat, jazz_rat, rnb_rat, classique_rat, rap_rat, electro_rat],
-                          //++data: [4, 3, 7, 9, 1, 8, 7],
                           data: data,
                           fill: true,
                           backgroundColor: 'rgba(255, 99, 132, 0.2)',
                           borderColor: 'rgb(255, 99, 132)',
-                          pointBackgroundColor: 'rgb(255, 99, 132)',
-                          pointBorderColor: '#fff',
-                          pointHoverBackgroundColor: '#fff',
-                          pointHoverBorderColor: 'rgb(255, 99, 132)'
+                          pointBackgroundColor: '#FFFFFF',
+                          pointBorderColor: '#FFFFFF',
+                          pointHoverBackgroundColor: '#FFFFFF',
+                          pointHoverBorderColor: '#FFFFFF'
                         }]
                       },
                       options: {
@@ -120,7 +117,23 @@
                       }
                     });
               </script>
+              </div>
             </div>
+            <div class="cadre2">
+              <script>
+              const ctx = document.getElementById('myChart').getContext('2d');
+              new Chart(ctx, {
+                type: 'pie',
+                data: {
+                  labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5', 'Label 6', 'Label 7'],
+                  datasets: [{
+                    data: [5.333333333333333, 1, 0, 10, 0, 3, 7],
+                  }]
+                }
+              });
+            </script>
+            </div>
+            
               <div>
                 <center><button onclick="window.location.href='/report';" class="button1">Nouvelle Chanson</button></center>
               </div>
