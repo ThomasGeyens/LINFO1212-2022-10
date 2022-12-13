@@ -135,6 +135,11 @@ app.get('/report', (req, res) => {
     res.render(path.join(__dirname, 'static/report.ejs'));
 });
 
+app.get('/list', (req, res) => {
+    res.locals.user = req.user;
+    res.render(path.join(__dirname, 'static/list.ejs'));
+});
+
 var urlencodeParser = bodyParser.urlencoded({ extended: false})
 
 app.post('/report', urlencodeParser,function(req, res){

@@ -14,7 +14,7 @@ html, body {
 }
 
 .page {
-  position:absolute;
+  position:relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/album.png);
   background-position: center;
   background-size: cover;
@@ -128,11 +128,6 @@ footer ul li:hover {
 .date-holder{
   float: right;
   margin-right: 20px;
-}
-
-* {
-  box-sizing: border-box;
-  z-index: 1;
 }
 
 .row {
