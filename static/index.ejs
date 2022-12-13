@@ -26,7 +26,7 @@
           <nav class="nav-bar">
             <ul>
               <li><a href="/" class="active">Home</a></li>
-              <li><a href="">Catégories</a></li>
+              <li><a href="/list">Catégories</a></li>
               <li><a href="/report">Review</a></li>
               <li><a href="#basdepage">Contact</a></li>
               <li>
@@ -49,7 +49,7 @@
         </div>
 
         <script src="navbar/navbar.js"></script>
-        <p class="date-holder" id="date-holder"></p>
+        <!--<p class="date-holder" id="date-holder"></p>-->
         <div class="page" >
           <!--
           <div class="row" id="premier-element">
@@ -137,20 +137,21 @@
               <div>
                 <center><button onclick="window.location.href='/report';" class="button1">Nouvelle Chanson</button></center>
               </div>
-              <!--<div class="piedpage">
-                      <a name="basdepage"></a>
-                      <ul>
-                        <li>Thomas Geyens: thomas.geyens@student.uclouvain.be</li>
-                        <li>Arthur Remience: arthur.remience@student.uclouvain.be</li>
-                        <li>Loris Dognaux: loris.dognaux@student.uclouvain.be</li>
-                      </ul>
-              </div>-->
           
             <% }else{ %>
-              <h2 class="h2-not-users">Afin de noter vos propres musiques, veuillez vous connectez ou créer un compte</h2>
+              <h2 class="h2-not-users">Afin de noter vos propres musiques, veuillez vous connecter ou créer un compte</h2>
               <div class="cadre1"><h1>?</h1></div>
               <div class="cadre2"><h1>?</h1></div>
             <% } %>
+
+            <footer>
+              <a name="basdepage"></a>
+              <ul>
+                <li>Thomas Geyens: thomas.geyens@student.uclouvain.be</li>
+                <li>Arthur Remience: arthur.remience@student.uclouvain.be</li>
+                <li>Loris Dognaux: loris.dognaux@student.uclouvain.be</li>
+              </ul>
+          </footer>
           
         </div>
     </body>

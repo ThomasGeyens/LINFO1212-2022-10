@@ -141,6 +141,10 @@ app.post('/auth', (req, res) => {
     //const user = // get the user object
     req.session.id = user.id;
   });
+app.get('/list', (req, res) => {
+    res.locals.user = req.user;
+    res.render(path.join(__dirname, 'static/list.ejs'));
+});
 
 var urlencodeParser = bodyParser.urlencoded({ extended: false})
 
