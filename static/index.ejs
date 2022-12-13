@@ -80,14 +80,11 @@
           </div>-->
           <div id='status' class='invisible'><%= errormessage %></div>
             <% if(user){ %>
-            <div class="cadre1">
 
-              <div class="chart1"> 
-              <canvas id="myChart" height="150" width="350"></canvas>
+              <div class="cadre1">
+              <canvas id="myChart" height="550" width="550"></canvas>
             
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-              <script>
-              </script>
               <script>
                     var data = <%- JSON.stringify(data)%>;
                     const ctx = document.getElementById('myChart');
@@ -102,10 +99,10 @@
                           fill: true,
                           backgroundColor: 'rgba(255, 99, 132, 0.2)',
                           borderColor: 'rgb(255, 99, 132)',
-                          pointBackgroundColor: '#FFFFFF',
+                          pointBackgroundColor: 'rgb(255, 99, 132)',
                           pointBorderColor: '#FFFFFF',
                           pointHoverBackgroundColor: '#FFFFFF',
-                          pointHoverBorderColor: '#FFFFFF'
+                          pointHoverBorderColor: 'rgb(255, 99, 132)'
                         }]
                       },
                       options: {
@@ -125,20 +122,38 @@
                       }
                     });
               </script>
-              </div>
             </div>
             <div class="cadre2">
+              <canvas id="mypieChart" height="550" width="550"></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
               <script>
-              const ctx = document.getElementById('myChart').getContext('2d');
-              new Chart(ctx, {
-                type: 'pie',
-                data: {
-                  labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5', 'Label 6', 'Label 7'],
-                  datasets: [{
-                    data: [5.333333333333333, 1, 0, 10, 0, 3, 7],
-                  }]
-                }
-              });
+
+                const cty = document.getElementById('mypieChart');
+                new Chart(cty, {
+                    type: "doughnut",
+                    data: {
+                      labels: ["Pop", "Rock", "Jazz", "Classique", "Rap", "RnB", "Electro"],
+                      datasets: [{
+                        data: [4, 7, 8, 5, 2, 5, 9],
+                        label: 'Average Rating',
+                        fill: true,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        pointBackgroundColor: 'rgb(255, 99, 132)',
+                        pointBorderColor: '#FFFFFF',
+                        pointHoverBackgroundColor: '#FFFFFF',
+                        pointHoverBorderColor: 'rgb(255, 99, 132)'
+                      }]
+                    },
+                    options: {
+                        responsive: true,
+                        elements: {
+                          line: {
+                            borderWidth: 3
+                          }
+                        },
+                      }
+                  });
             </script>
             </div>
             
