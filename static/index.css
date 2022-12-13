@@ -1,3 +1,12 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -5,11 +14,10 @@ html, body {
 }
 
 .page {
-  position: relative;
-  background-color: #6d6d6d;
+  position:absolute;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/album.png);
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
   color: #ffffff;
   padding: 1em;
   text-align: center;
@@ -53,9 +61,17 @@ h1{
   font-size:150px;
 }
 
-.h2-not-users{
-  text-align: center;
-
+.h2-not-users {
+  display: block;
+  color: #fefefe;
+  font-size: 20px;
+  width: 40%;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.2s;
+  margin-top: 50px;
+  background-color: #FF6347;
+  margin-left: 425px;
 }
 
 .chart1::after {
@@ -66,20 +82,20 @@ h1{
   background-color: #11101b;
 }
 
-.piedpage{
-  position: fixed;
+footer{
+  position: relative;
   bottom: 0;
   left: 0;
   width: 100%;
-  width: 100%;
-  height: 80px;
+  height: 60px;
+  float:inline-end;
 }
 
-.piedpage ul{
+footer ul{
   display: flex;
 }
 
-.piedpage ul li {
+footer ul li {
   text-align: center;
   display: block;
   color: #fefefe;
@@ -90,7 +106,7 @@ h1{
   margin: 0 5px;
 }
 
-.piedpage ul li:hover {
+footer ul li:hover {
   top: 50%;
   transform: translateY(-50%);
   color: #fefefe;
@@ -154,4 +170,4 @@ h1{
 .button1:hover {
   background-color: #FF6347;
   color: #fefefe;
-} 
+}
