@@ -36,8 +36,10 @@ db.testCon();
 app.get('/', async function (req, res) {
     res.locals.user = req.user;
     const bdtest = await db.getUser("thomas");
-    console.log("req.user : ", req.user)
-    console.log("getusertest: ", bdtest)
+    //console.log("req.user : ", req.user)
+    //console.log("getusertest: ", bdtest)
+    const userId = req.session.id;
+    console.log("this should be userid", userId)
 
 
     var pop_rat = 0;
@@ -134,6 +136,11 @@ app.get('/report', (req, res) => {
     res.locals.user = req.user;
     res.render(path.join(__dirname, 'static/report.ejs'));
 });
+
+app.post('/auth', (req, res) => {
+    //const user = // get the user object
+    req.session.id = user.id;
+  });
 
 var urlencodeParser = bodyParser.urlencoded({ extended: false})
 
