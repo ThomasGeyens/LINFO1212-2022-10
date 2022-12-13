@@ -83,7 +83,7 @@
             <div class="cadre1">
 
               <div class="chart1"> 
-              <canvas id="myChart" height="250" width="350"></canvas>
+              <canvas id="myChart" height="150" width="350"></canvas>
             
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
               <script>
@@ -94,7 +94,7 @@
                     new Chart(ctx, {
                       type: 'radar',
                       data: {
-                        labels: ["Pop", "Rap", "Jazz", "Classique", "Rap", "RnB", "Electro"],
+                        labels: ["Pop", "Rock", "Jazz", "Classique", "Rap", "RnB", "Electro"],
                         datasets: [
                         {
                           label: 'Average Rating',
@@ -109,10 +109,18 @@
                         }]
                       },
                       options: {
+                        responsive: true,
                         elements: {
                           line: {
                             borderWidth: 3
                           }
+                        },
+                        scale: {
+                            ticks: {
+                                min: 0,
+                                max: 10,
+                                stepSize: 1
+                            }
                         }
                       }
                     });
