@@ -172,6 +172,7 @@ module.exports = {
   getSongs: async function () {
     return Song.findAll();
   },
+
   User,
   Song
 };
