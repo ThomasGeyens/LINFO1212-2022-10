@@ -51,9 +51,42 @@
         <script src="navbar/navbar.js"></script>
 
         <div class="page" >
-            <div class="cadre"><h1></h1></div>
-
-
+          
+            <% if(user){ %>
+              <div class="cadre-user">
+                <center><div class="user-title"><%= user.username %></div></center>
+                <div class="stats">
+                  <ul>
+                    <li>Nombres de musiques notées :</li>
+                    <li>Moyenne des notes :</li>
+                    <li>Catégories préférées :</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="cadre">
+                <h2 class="h2-liste">Liste des musiques notées :</h2>
+                
+                <div class="row" id="premier-element">
+                  <div class="column">
+                    <ul>
+                      <!--Ceci est un exemple!-->
+                      <li>Speed-World cup</li>
+                      <li>Drake-God's plan</li>
+                      <li>Village-Pier 69</li>
+                      <li>DaniLeigh-No Limits</li>
+                      <li>Vic Sage-Big Leagues</li>
+                      <li>Ikson-Good day</li>
+                      <li>DROELOE-Homebound</li>
+                      <li>NBHD-Saint Nick</li>
+                      <li>Drake-One Dance</li>
+                      <li>COTIS-Girls from the North</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <% }else{ %>
+              <h1>Afin d'avoir acces a votre liste de chansons notées, il suffit de vous connectez ou bien de créer un compte !</h1>
+            <% } %>
 
             <footer>
                 <a name="basdepage"></a>
