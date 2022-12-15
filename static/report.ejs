@@ -45,57 +45,61 @@
       </div>
 
     <div class="page">
+      <% if(user){ %>
         <center><h1>Notez donc votre chanson !</h1></center>
-      <form method="post">
-        <div class="titre"> 
-          <h2 class="h2-left">Titre de la chanson :</h2>
-            <label for="na_art"></label>
-            <input type="text" name="na_art" id="formfield" placeholder="Entrer title and artist" required>
-        </div>
-        <div class="avis">
-          <h2 class="h2-left">Avis sur la chanson :</h2>
-            <label for="desc"></label>
-            <input type="text" name="desc" id="formfield" placeholder="Entrer descriprion" required>
-        </div>
-        <div class="note">
-            <div class="custom-select">
-              <h2 class="h2-right-2">Une note sur 10 ?</h2>
-              <label for="rat"></label>
-              <select name="rat" id="note" required class="bottom">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-              <a></a>
-              <a></a>
-              <a></a>
-            </div>
-        </div>
-        <div class="genre">
-            <div class="custom-select">
-              <h2 class="h2-right-1">Genres :</h2>
-              <label for="gnr"></label>
-              <select name="gnr" id="genre" required class="top">
-                <option value="Pop">Pop</option>
-                <option value="Rap">Rap</option>
-                <option value="Electro">Electro</option>
-                <option value="Rock">Rock</option>
-                <option value="Classique">Classique</option>
-                <option value="RnB">RnB</option>
-                <option value="Jazz">Jazz</option>
-              </select>
-            </div>
-        <div class="button">
-          <center><button type="submit" id="button" class="valider">Valider</button></center>
-        </div>    
-      </form>
+        <form method="post">
+          <div class="titre"> 
+            <h2 class="h2-left">Titre de la chanson :</h2>
+              <label for="na_art"></label>
+              <input type="text" name="na_art" id="formfield" placeholder="Entrer title and artist" required>
+          </div>
+          <div class="avis">
+            <h2 class="h2-left">Avis sur la chanson :</h2>
+              <label for="desc"></label>
+              <input type="text" name="desc" id="formfield" placeholder="Entrer descriprion" required>
+          </div>
+          <div class="note">
+              <div class="custom-select">
+                <h2 class="h2-right-2">Une note sur 10 ?</h2>
+                <label for="rat"></label>
+                <select name="rat" id="note" required class="bottom">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                <a></a>
+                <a></a>
+                <a></a>
+              </div>
+          </div>
+          <div class="genre">
+              <div class="custom-select">
+                <h2 class="h2-right-1">Genres :</h2>
+                <label for="gnr"></label>
+                <select name="gnr" id="genre" required class="top">
+                  <option value="Pop">Pop</option>
+                  <option value="Rap">Rap</option>
+                  <option value="Electro">Electro</option>
+                  <option value="Rock">Rock</option>
+                  <option value="Classique">Classique</option>
+                  <option value="RnB">RnB</option>
+                  <option value="Jazz">Jazz</option>
+                </select>
+              </div>
+          <div class="button">
+            <center><button type="submit" id="button" class="valider">Valider</button></center>
+          </div>    
+        </form>
+      <% }else{ %>
+        <h1 class="h1-not-user">Afin de pouvoir noter vos chansons, il suffit de vous connectez ou bien de créer un compte !</h1>
+      <% } %>
       <footer>
         <a name="basdepage"></a>
         <ul>

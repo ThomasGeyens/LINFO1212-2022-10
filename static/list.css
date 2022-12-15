@@ -15,7 +15,7 @@ html, body {
   
 .page {
     position:absolute;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/album.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/album.png);
     background-position: center;
     background-size: cover;
     color: #ffffff;

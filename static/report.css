@@ -40,6 +40,20 @@ h1{
   background-color: #FF6347;
 }
 
+.h1-not-user{
+  display: block;
+  color: #fefefe;
+  font-size: 30px;
+  width: 50%;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.2s;
+  margin-top: 340px;
+  margin-bottom:400px;
+  background-color: #FF6347;
+  margin-left: 350px;
+}
+
 form{
   margin: 50px;
 }
