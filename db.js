@@ -51,6 +51,7 @@ const User = sequelize.define('User', {
 User.hasMany(Song);
 Song.belongsTo(User);
 
+
 module.exports = {
   testCon: async function () {
     try {
@@ -65,6 +66,7 @@ module.exports = {
     console.log('New Song was saved to the database!');
   },
 
+  //les fonctions ici vont permettre de trouver la moyenne par genre
   getAverageRatingForPop: async function(userId) {
     return Song.findAll({
       attributes: [
@@ -164,7 +166,72 @@ module.exports = {
       group: ['UserId', 'genre']
     });
   },
-  
+
+  //les fonctions ci-dessous vont permettre de calculer le nombre de son par genre
+  get_nbr_of_pop: async function(userId) {
+    return Song.count({
+      where: { 
+        userId: userId,
+        genre: "Pop" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+
+  get_nbr_of_rap: async function(userId) {
+    return Song.count({
+      where: { 
+        userId: userId,
+        genre: "Rap" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  get_nbr_of_electro: async function(userId) {
+    return Song.count({
+      where: { 
+        userId: userId,
+        genre: "Electro" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  get_nbr_of_rock: async function(userId) {
+    return Song.count({
+      where: { 
+        userId: userId,
+        genre: "Rock" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  get_nbr_of_classique: async function(userId) {
+    return Song.count({
+      where: { 
+        userId: userId,
+        genre: "Classique" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  get_nbr_of_rnb: async function(userId) {
+    return Song.count({
+      where: { 
+        userId: userId,
+        genre: "RnB" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
+  get_nbr_of_jazz: async function(userId) {
+    return Song.count({
+      where: { 
+        userId: userId,
+        genre: "Jazz" 
+      },
+      group: ['UserId', 'genre']
+    });
+  },
   
   getUser: async function (username) {
     return User.findOne({where: { username: username }});

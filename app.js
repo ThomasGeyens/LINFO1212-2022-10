@@ -118,6 +118,69 @@ app.get('/', async function (req, res) {
         var data = [];
         data.push(pop_rat,rock_rat,jazz_rat,classique_rat,rap_rat, rnb_rat,electro_rat);
 
+
+
+        var nbrofclassique = 0
+        var nbrofelectro = 0;
+        var nbrofpop = 0;
+        var nbrofrap = 0;
+        var nbrofrnb = 0;
+        var nbrofjazz = 0;
+        var nbrofrock = 0;
+        //nbr of songs for each genre for each user
+        const testnbrofpop = await db.get_nbr_of_pop(userid);
+        if (testnbrofpop[0]==undefined){
+            nbrofpop += 0;
+        }else{
+            nbrofpop += testnbrofpop[0].count;
+        }
+
+        const testnbrofrock = await db.get_nbr_of_rock(userid);
+        if (testnbrofrock[0]==undefined){
+            nbrofrock += 0;
+        }else{
+            nbrofrock += testnbrofrock[0].count;
+        }
+
+        const testnbrofjazz = await db.get_nbr_of_jazz(userid);
+        if (testnbrofjazz[0]==undefined){
+            nbrofjazz += 0;
+        }else{
+            nbrofjazz += testnbrofjazz[0].count;
+        }
+
+        const testnbrofclassique = await db.get_nbr_of_classique(userid);
+        if (testnbrofclassique[0]==undefined){
+            nbrofclassique += 0;
+        }else{
+            nbrofclassique += testnbrofclassique[0].count;
+        }
+
+        const testnbrofrap = await db.get_nbr_of_rap(userid);
+        if (testnbrofrap[0]==undefined){
+            nbrofrap += 0;
+        }else{
+            nbrofrap += testnbrofrap[0].count;
+        }
+
+        const testnbrofrnb = await db.get_nbr_of_rnb(userid);
+        if (testnbrofrnb[0]==undefined){
+            nbrofrnb += 0;
+        }else{
+            nbrofrnb += testnbrofrnb[0].count;
+        }
+
+        const testnbrofelectro = await db.get_nbr_of_electro(userid);
+        if (testnbrofelectro[0]==undefined){
+            nbrofelectro += 0;
+        }else{
+            nbrofelectro += testnbrofelectro[0].count;
+        }
+
+        var nbr_of_songs_data = [];
+        nbr_of_songs_data.push(nbrofpop, nbrofrock, nbrofjazz, nbrofclassique, nbrofrap, nbrofrnb, nbrofelectro);
+
+
     }else{
         console.log("there is no user connected yet")
     }
@@ -131,7 +194,7 @@ app.get('/', async function (req, res) {
     };
 
 
-    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers, data:data});
+    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers, data:data, nbr_of_songs_data:nbr_of_songs_data});
 });
 
 app.get('/auth', (req, res) => {

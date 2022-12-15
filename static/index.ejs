@@ -33,7 +33,7 @@
                 <h4 id="name-holder">
                   <% if(user){ %>
                     <a> <%= user.username %> </a>
-                    <ul><li><a href="">Déconnexion</a></li></ul>
+                    <ul><li><a href="https://localhost:8080">Déconnexion</a></li></ul>
                   <% } else{ %>  
                     <a href="/auth">Login</a>
                   <% } %>
@@ -98,8 +98,21 @@
                           label: 'Average Rating',
                           data: data,
                           fill: true,
-                          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                          borderColor: 'rgb(255, 99, 132)',
+                          backgroundColor: 
+                          [
+                          'rgba(255, 99, 132, 0.2)',
+                          ],
+                          borderColor: 
+                          [
+                            // You can also specify colors for the borders of each data point
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(95, 199, 132, 1)'
+                          ],
                           pointBackgroundColor: 'rgb(255, 99, 132)',
                           pointBorderColor: '#FFFFFF',
                           pointHoverBackgroundColor: '#FFFFFF',
@@ -128,32 +141,50 @@
               <canvas id="mypieChart" height="550" width="550"></canvas>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
               <script>
-
+                var nbr_of_songs_data = <%- JSON.stringify(nbr_of_songs_data)%>;
                 const cty = document.getElementById('mypieChart');
                 new Chart(cty, {
                     type: "doughnut",
                     data: {
                       labels: ["Pop", "Rock", "Jazz", "Classique", "Rap", "RnB", "Electro"],
                       datasets: [{
-                        data: [4, 7, 8, 5, 2, 5, 9],
-                        label: 'Average Rating',
+                        data: nbr_of_songs_data,
+                        label: 'Nombre de musique dans ce genre: ',
                         fill: true,
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgb(255, 99, 132)',
-                        pointBackgroundColor: 'rgb(255, 99, 132)',
-                        pointBorderColor: '#FFFFFF',
-                        pointHoverBackgroundColor: '#FFFFFF',
-                        pointHoverBorderColor: 'rgb(255, 99, 132)'
+                        backgroundColor: [
+                          // You can specify colors for each data point here
+                          'rgba(255, 99, 132, 0.2)',
+                          'rgba(54, 162, 235, 0.2)',
+                          'rgba(255, 206, 86, 0.2)',
+                          'rgba(75, 192, 192, 0.2)',
+                          'rgba(153, 102, 255, 0.2)',
+                          'rgba(255, 159, 64, 0.2)',
+                          'rgba(95, 199, 232, 0.2)'
+                        ],
+                        borderColor: [
+                          // You can also specify colors for the borders of each data point
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(54, 162, 235, 1)',
+                          'rgba(255, 206, 86, 1)',
+                          'rgba(75, 192, 192, 1)',
+                          'rgba(153, 102, 255, 1)',
+                          'rgba(255, 159, 64, 1)',
+                          'rgba(95, 199, 232, 1)'
+                        ],
                       }]
                     },
                     options: {
-                        responsive: true,
-                        elements: {
-                          line: {
-                            borderWidth: 3
-                          }
-                        },
-                      }
+                      cutoutPercentage: 50, // This sets the inner radius of the doughnut
+                      rotation: -0.5 * Math.PI, // This rotates the chart by 90 degrees
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      responsive: true,
+                      elements: {
+                        line: {
+                          borderWidth: 3
+                        }
+                      },
+                    }
                   });
             </script>
             </div>
