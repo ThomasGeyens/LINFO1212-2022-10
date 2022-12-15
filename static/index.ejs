@@ -82,7 +82,7 @@
           <div id='status' class='invisible'><%= errormessage %></div>
             <% if(user){ %>
 
-              <div class="cadre1">
+              <div class="cadre1-user">
               <canvas id="myChart" height="550" width="550"></canvas>
             
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -124,7 +124,7 @@
                     });
               </script>
             </div>
-            <div class="cadre2">
+            <div class="cadre2-user">
               <canvas id="mypieChart" height="550" width="550"></canvas>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
               <script>
@@ -164,8 +164,8 @@
           
             <% }else{ %>
               <h2 class="h2-not-users">Afin de noter vos propres musiques, veuillez vous connecter ou créer un compte</h2>
-              <div class="cadre1"><h1>?</h1></div>
-              <div class="cadre2"><h1>?</h1></div>
+              <div class="cadre1-not-user"><h1>?</h1></div>
+              <div class="cadre2-not-user"><h1>?</h1></div>
             <% } %>
 
             <footer>
@@ -176,7 +176,6 @@
                 <li>Loris Dognaux: loris.dognaux@student.uclouvain.be</li>
               </ul>
           </footer>
-          
         </div>
     </body>
 
