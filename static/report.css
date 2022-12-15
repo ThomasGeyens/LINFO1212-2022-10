@@ -105,13 +105,10 @@ input{
   padding: 10px;
   color: #fefefe;
   margin-top: -25px;
-
 }
 
-button{
-  display: block;
-  margin-top: -40px;
-  margin-bottom: 60px;
+.valider {
+  display:block;
   width: 15%;
   padding: 8px;
   border: none;
@@ -122,7 +119,8 @@ button{
   cursor: pointer;
   transition: 0.2s;
   border-radius: 50px;
-  float:inline-end;
+  margin-top: 390px;
+  float: inline-start;
 }
 
 label{
@@ -131,7 +129,46 @@ label{
   margin-top: -10px;
 }
 
-.titre{
+select {
+  position:relative;
+}
+
+select.top {
+  appearance: none;
+  box-sizing: border-box;
+  color: #fefefe;
+  position: absolute;
+  width: 335px;
+  height: 61px;
+  left: 1078px;
+  top: 200px;
+
+  background: #111111;
+  border: 2px solid #FF6347;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+
+select.bottom{
+  appearance: none;
+  box-sizing: border-box;
+  color: #fefefe;
+  position: absolute;
+  width: 335px;
+  height: 61px;
+  left: 1078px;
+  top: 500px;
+
+  background: #111111;
+  border: 2px solid #FF6347;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+
+/* Full-width inputs */
+.titre input[type=text] {
   float: left;
   width: 65%;
   height: 20%;
@@ -143,12 +180,12 @@ label{
   border: 1px solid rgba(255, 255, 255, 0.18);
   margin: 80px auto;
   margin-right: 250px;
-}
+  }
 
-.avis{
+.avis input[type=text] {
   float:left;
   width: 65%;
-  height: 50%;
+  height: 300px;
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(0.3px);
@@ -158,20 +195,9 @@ label{
   margin: 80px auto;
   margin-right: 250px;
 }
-
-select{
-  position: relative;
-}
-
-select.top{
-  top: 150px;
-  right: 60px;
-  appearance: none;
-}
-
-select.bottom{
-  top: 450px;
-  right:60px;
+  
+input:valid {
+    border: 2px solid black;
 }
 
 footer{
@@ -203,33 +229,4 @@ footer ul li:hover {
   transform: translateY(-50%);
   color: #fefefe;
   background: #11101b;
-}
-
-/* Full-width inputs */
-.titre input[type=text] {
-    width: 100%;
-    height: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-
-.avis input[type=text] {
-  width: 100%;
-  height: 300px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-input:invalid:required {
-    border: 2px dashed #11101b;
-}
-  
-input:valid {
-    border: 2px solid black;
 }

@@ -60,9 +60,9 @@
           </div>
           <div class="note">
               <div class="custom-select">
-                <h2 class="h2-right-2">Une note sur 10 ?</h2>
                 <label for="rat"></label>
                 <select name="rat" id="note" required class="bottom">
+                  <option selected disabled>Choisissez une note</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -81,21 +81,21 @@
           </div>
           <div class="genre">
               <div class="custom-select">
-                <h2 class="h2-right-1">Genres :</h2>
                 <label for="gnr"></label>
                 <select name="gnr" id="genre" required class="top">
-                  <option value="Pop">Pop</option>
-                  <option value="Rap">Rap</option>
-                  <option value="Electro">Electro</option>
-                  <option value="Rock">Rock</option>
-                  <option value="Classique">Classique</option>
-                  <option value="RnB">RnB</option>
-                  <option value="Jazz">Jazz</option>
+                  <div class="select-list">
+                    <option selected disabled>Choissisez un genre</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Rap">Rap</option>
+                    <option value="Electro">Electro</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Classique">Classique</option>
+                    <option value="RnB">RnB</option>
+                    <option value="Jazz">Jazz</option>
+                  </div>
                 </select>
               </div>
-          <div class="button">
-            <center><button type="submit" id="button" class="valider">Valider</button></center>
-          </div>    
+            <center><button type="submit" id="button" class="valider">Valider</button></center>  
         </form>
       <% }else{ %>
         <h1 class="h1-not-user">Afin de pouvoir noter vos chansons, il suffit de vous connectez ou bien de créer un compte !</h1>
