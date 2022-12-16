@@ -41,10 +41,8 @@ app.get('/', async function (req, res) {
     }else{
         id += res.locals.user.dataValues.id;
     }
-    console.log("this is the id :",id[31])
     var userid = id[31];
     userid = parseInt(userid);
-    console.log("this should be user: ", userid)
 
 
     var pop_rat = 0;
@@ -178,7 +176,13 @@ app.get('/', async function (req, res) {
         }
 
         var nbr_of_songs_data = [];
+        var total_nbr_of_songs = 0;
         nbr_of_songs_data.push(nbrofpop, nbrofrock, nbrofjazz, nbrofclassique, nbrofrap, nbrofrnb, nbrofelectro);
+        for (let i = 0; i<nbr_of_songs_data.length; i++){
+            total_nbr_of_songs += nbr_of_songs_data[i];
+        }
+
+
 
 
     }else{
@@ -194,7 +198,7 @@ app.get('/', async function (req, res) {
     };
 
 
-    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers, data:data, nbr_of_songs_data:nbr_of_songs_data});
+    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers, data:data, nbr_of_songs_data:nbr_of_songs_data, total_nbr_of_songs: total_nbr_of_songs});
 });
 
 app.get('/auth', (req, res) => {
@@ -210,9 +214,35 @@ app.post('/auth', (req, res) => {
     //const user = // get the user object
     req.session.id = user.id;
   });
-app.get('/list', (req, res) => {
+app.get('/list', async function (req, res)  {
     res.locals.user = req.user;
-    res.render(path.join(__dirname, 'static/list.ejs'));
+    var id = res.locals.user;
+    if (id == undefined){
+        id += 0;
+    }else{
+        id += res.locals.user.dataValues.id;
+    }
+    var userid = id[31];
+    userid = parseInt(userid);
+
+    var nbrofsongs = 0;
+    var avgforallsongs = 0;
+    data = [];
+    if (!isNaN(userid) && userid!=0){
+        nbrofsongs += await db.get_nbr_of_songs(userid);
+        avgforall = await db.getAverageRatingForAll(userid);
+        //bestgenre = await db.getbestgenre(userid); a retravailler
+        console.log("best genre: ", bestgenre)
+        avgforall = avgforall[0];
+        if (avgforall==undefined){
+            avgforallsongs += 0;
+        }else{
+            avgforallsongs+= avgforall.dataValues.averageRating;
+        }
+    }
+
+
+    res.render(path.join(__dirname, 'static/list.ejs'), {nbrofsongs: nbrofsongs, avgforallsongs:avgforallsongs});
 });
 
 var urlencodeParser = bodyParser.urlencoded({ extended: false})

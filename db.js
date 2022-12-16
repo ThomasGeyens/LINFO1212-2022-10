@@ -232,7 +232,51 @@ module.exports = {
       group: ['UserId', 'genre']
     });
   },
-  
+
+  get_nbr_of_songs: async function (userId) {
+    return Song.count({
+      where: {
+        userId: userId
+      }
+    });
+  },
+
+  getAverageRatingForAll: async function(userId) {
+    return Song.findAll({
+      attributes: [
+        'rating',[sequelize.fn('AVG', sequelize.col('rating')), 'averageRating']
+      ],
+      include: [
+        {
+          model: User,
+          where: { id: userId }
+        }
+      ]
+    });
+  },
+
+  /*
+  getbestgenre: async function(userId) {
+    return Song.findOne({
+      attributes: ['genre', [sequelize.fn('MAX', sequelize.col('averageRating')), 'maxAverageRating']],
+      include: [
+        {
+          model: User,
+          where: { id: userId },
+          attributes: [],
+          required: false
+        }
+      ],
+      group: ['genre'],
+      order: [[sequelize.fn('MAX', sequelize.col('averageRating')), 'DESC']],
+      subQuery: false,
+      raw: true,
+      having: sequelize.where(sequelize.fn('MAX', sequelize.col('averageRating')), {
+        [sequelize.Op.gt]: 0
+      })
+    });
+  },
+  */
   getUser: async function (username) {
     return User.findOne({where: { username: username }});
   },
