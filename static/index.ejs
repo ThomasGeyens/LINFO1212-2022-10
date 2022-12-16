@@ -33,7 +33,7 @@
                 <h4 id="name-holder">
                   <% if(user){ %>
                     <a> <%= user.username %> </a>
-                    <ul><li><a href="https://localhost:8080">Déconnexion</a></li></ul>
+                    <ul><li><button onclick="logout()">Déconnexion</button></li></ul>
                   <% } else{ %>  
                     <a href="/auth">Login</a>
                   <% } %>

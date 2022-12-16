@@ -68,16 +68,34 @@
   background: #FF6347;
 }
 
-.navbar ul li ul{
+.navbar ul li ul button{
   display: none;
 }
 
-.navbar ul li ul li {
+.navbar ul li ul li button {
   float: none;
 }
 
-.navbar ul li:hover ul {
+.navbar ul li:hover ul button {
   display: block;
+}
+
+.navbar ul li button {
+  display: block;
+  color: #fefefe;
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.2s;
+  margin: 0 5px;
+  border: 1px solid #11101b;
+  background-color: #11101b;
+}
+
+.navbar ul li button:hover{
+  font-style: none;
+  color: #fefefe;
+  background: #FF6347;
 }
 
 @media only screen and (max-width: 1320px){
