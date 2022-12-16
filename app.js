@@ -232,7 +232,7 @@ app.get('/list', async function (req, res)  {
         nbrofsongs += await db.get_nbr_of_songs(userid);
         avgforall = await db.getAverageRatingForAll(userid);
         //bestgenre = await db.getbestgenre(userid); a retravailler
-        console.log("best genre: ", bestgenre)
+        //console.log("best genre: ", bestgenre)
         avgforall = avgforall[0];
         if (avgforall==undefined){
             avgforallsongs += 0;
