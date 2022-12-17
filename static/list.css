@@ -146,4 +146,25 @@ footer ul li:hover {
     color: #fefefe;
     background: #11101b;
 }
+
+.row {
+    margin-top: 50px;
+    margin-left: 10%;
+    height: 100px;
+  }
+  
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 400px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    z-index: 1;
+
+}
   

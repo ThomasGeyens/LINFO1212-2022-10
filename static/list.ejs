@@ -59,7 +59,7 @@
                   <ul>
                     <li>Nombres de musiques notées : <%= nbrofsongs %></li>
                     <li>Moyenne des notes : <%= avgforallsongs %></li>
-                    <li>Catégories préférées :</li>
+                    <li>Catégories préférées : <%= realbestgenre %></li>
                   </ul>
                 </div>
               </div>
@@ -67,36 +67,43 @@
                 <h2 class="h2-liste">Liste des musiques notées :</h2>
                 
                 <div class="row" id="premier-element">
-                  <div class="column">
-                    <ul>
-                      <!--Ceci est un exemple!-->
-                      <li>Speed-World cup</li>
-                      <li>Drake-God's plan</li>
-                      <li>Village-Pier 69</li>
-                      <li>DaniLeigh-No Limits</li>
-                      <li>Vic Sage-Big Leagues</li>
-                      <li>Ikson-Good day</li>
-                      <li>DROELOE-Homebound</li>
-                      <li>NBHD-Saint Nick</li>
-                      <li>Drake-One Dance</li>
-                      <li>COTIS-Girls from the North</li>
-                    </ul>
+                    <div class="column">
+                      <h2>Chanson</h2>
+                      <% for(var i=0; i < songs.length; i++) { %>
+                        <p><%= songs[i].name_artist %></p>
+                      <% } %>
+                    </div>
+                    <div class="column">
+                      <h2>Avis</h2>
+                      <% for(var i=0; i < songs.length; i++) { %>
+                        <p><%= songs[i].description %></p>
+                      <% } %>
+                    </div>
+                    <div class="column">
+                      <h2>Rating</h2>
+                      <% for(var i=0; i < songs.length; i++) { %>
+                        <p><%= songs[i].rating %></p>
+                      <% } %>
+                    </div>
+                    <div class="column">
+                      <h2>Genre</h2>
+                      <% for(var i=0; i < songs.length; i++) { %>
+                        <p><%= songs[i].genre %></p>
+                      <% } %>
+                    </div>
                   </div>
-                </div>
               </div>
-            <% }else{ %>
-              <h1>Afin d'avoir acces a votre liste de chansons notées, il suffit de vous connectez ou bien de créer un compte !</h1>
-            <% } %>
-
-            <footer>
+          </div>
+          <!-- pour loris !! je sais pas mettre ca en bas de page<footer>
                 <a name="basdepage"></a>
                 <ul>
                   <li>Thomas Geyens: thomas.geyens@student.uclouvain.be</li>
                   <li>Arthur Remience: arthur.remience@student.uclouvain.be</li>
                   <li>Loris Dognaux: loris.dognaux@student.uclouvain.be</li>
                 </ul>
-            </footer>
-        </div>
-
+          </footer>--> 
+            <% }else{ %>
+              <h1>Afin d'avoir acces a votre liste de chansons notées, il suffit de vous connectez ou bien de créer un compte !</h1>
+            <% } %>
     </body>
 </html>

@@ -188,17 +188,9 @@ app.get('/', async function (req, res) {
     }else{
         console.log("there is no user connected yet")
     }
-    
-
-    songs = await db.getSongs()
-    repusers=[];
-    for (const element of songs) {
-        repuser = await db.User.findByPk(element.UserId)
-        repusers.push(repuser.username);
-    };
 
 
-    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", songs: songs, repusers:repusers, data:data, nbr_of_songs_data:nbr_of_songs_data, total_nbr_of_songs: total_nbr_of_songs});
+    res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", data:data, nbr_of_songs_data:nbr_of_songs_data, total_nbr_of_songs: total_nbr_of_songs});
 });
 
 app.get('/auth', (req, res) => {
@@ -228,21 +220,105 @@ app.get('/list', async function (req, res)  {
     var nbrofsongs = 0;
     var avgforallsongs = 0;
     data = [];
+
+    var songs = 0;
+    var bestgenre = 0;
+    var pop_rat = 0;
+    var rap_rat = 0;
+    var electro_rat = 0;
+    var jazz_rat = 0;
+    var rnb_rat = 0;
+    var rock_rat = 0;
+    var classique_rat = 0;
+    data = [];
     if (!isNaN(userid) && userid!=0){
+        averageRatingForPop = await db.getAverageRatingForPop(userid)
+        var pop_song = averageRatingForPop[0];
+        if (pop_song==undefined){
+            pop_rat += 0;
+        }else{
+            pop_rat += pop_song.dataValues.averageRating;
+        }
+        //average rating for rap
+        var averageRatingForRap = await db.getAverageRatingForRap(userid);
+        var rap_song = averageRatingForRap[0];
+        if (rap_song==undefined){
+            rap_rat += 0;
+        }else{
+            rap_rat += rap_song.dataValues.averageRating;
+        }
+        //average rating for electro
+        var averageRatingForElectro = await db.getAverageRatingForElectro(userid);
+        var electro_song = averageRatingForElectro[0];
+        if (electro_song==undefined){
+            electro_rat += 0;
+        }else{
+            electro_rat += electro_song.dataValues.averageRating;
+        }
+        
+        //average rating for rock
+        var averageRatingForRock = await db.getAverageRatingForRock(userid);
+        var rock_song = averageRatingForRock[0];
+        if (rock_song==undefined){
+            rock_rat += 0;
+        }else{
+            rock_rat += rock_song.dataValues.averageRating;
+        }
+        //average rating for classique
+        var averageRatingForClassique = await db.getAverageRatingForClassique(userid);
+        var classique_song = averageRatingForClassique[0];
+        if (classique_song==undefined){
+            classique_rat += 0;
+        }else{
+            classique_rat += classique_song.dataValues.averageRating;
+        }
+        
+        //average rating for rnb
+        var averageRatingForRnB = await db.getAverageRatingForRnB(userid);
+        var rnb_song = averageRatingForRnB[0];
+        if (rnb_song==undefined){
+            rnb_rat += 0;
+        }else{
+            rnb_rat += rnb_song.dataValues.averageRating;
+        }
+        
+        //average rating for jazz
+        var averageRatingForJazz = await db.getAverageRatingForJazz(userid);
+        var jazz_song = averageRatingForJazz[0];
+        if (jazz_song==undefined){
+            jazz_rat += 0;
+        }else{
+            jazz_rat += jazz_song.dataValues.averageRating;
+        }
+        var data = [];
+        data.push(pop_rat,rock_rat,jazz_rat,classique_rat,rap_rat, rnb_rat,electro_rat);
+        console.log("this is the data: ", data)
+        bestgenre = 0;
+        for (let i = 0; i <data.length; i++){
+            if (data[i] > bestgenre){
+                bestgenre = i;
+            }
+        }
+
+        var temp = ["Pop", "Rock", "Jazz", "Classique", "Rap", "Rnb", "Electro"];
+        var realbestgenre = temp[bestgenre];
+
+
+
         nbrofsongs += await db.get_nbr_of_songs(userid);
         avgforall = await db.getAverageRatingForAll(userid);
-        //bestgenre = await db.getbestgenre(userid); a retravailler
-        //console.log("best genre: ", bestgenre)
         avgforall = avgforall[0];
         if (avgforall==undefined){
             avgforallsongs += 0;
         }else{
-            avgforallsongs+= avgforall.dataValues.averageRating;
+            avgforallsongs += avgforall.dataValues.averageRating;
         }
+        avgforallsongs = Number((avgforallsongs).toFixed(1));
+        songs = await db.getSongs(userid)
     }
 
 
-    res.render(path.join(__dirname, 'static/list.ejs'), {nbrofsongs: nbrofsongs, avgforallsongs:avgforallsongs});
+    res.render(path.join(__dirname, 'static/list.ejs'), {songs: songs, nbrofsongs: nbrofsongs, avgforallsongs:avgforallsongs, realbestgenre:realbestgenre});
 });
 
 var urlencodeParser = bodyParser.urlencoded({ extended: false})

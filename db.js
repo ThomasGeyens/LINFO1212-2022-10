@@ -255,33 +255,16 @@ module.exports = {
     });
   },
 
-  /*
-  getbestgenre: async function(userId) {
-    return Song.findOne({
-      attributes: ['genre', [sequelize.fn('MAX', sequelize.col('averageRating')), 'maxAverageRating']],
-      include: [
-        {
-          model: User,
-          where: { id: userId },
-          attributes: [],
-          required: false
-        }
-      ],
-      group: ['genre'],
-      order: [[sequelize.fn('MAX', sequelize.col('averageRating')), 'DESC']],
-      subQuery: false,
-      raw: true,
-      having: sequelize.where(sequelize.fn('MAX', sequelize.col('averageRating')), {
-        [sequelize.Op.gt]: 0
-      })
-    });
-  },
-  */
   getUser: async function (username) {
     return User.findOne({where: { username: username }});
   },
-  getSongs: async function () {
-    return Song.findAll();
+  getSongs: async function (userId) {
+    return Song.findAll({
+      where: {
+        userId: userId
+      }
+    }
+    );
   },
 
   User,
