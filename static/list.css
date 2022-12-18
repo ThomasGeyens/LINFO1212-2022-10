@@ -167,4 +167,21 @@ footer ul li:hover {
     z-index: 1;
 
 }
+footer ul li {
+    text-align: center;
+    display: block;
+    color: #fefefe;
+    font-size: 20px;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: 0.2s;
+    margin: 0 5px;
+  }
+  
+footer ul li:hover {
+top: 50%;
+transform: translateY(-50%);
+color: #fefefe;
+background: #11101b;
+}
   

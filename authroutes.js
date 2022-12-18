@@ -52,9 +52,11 @@ app.post('/signup', function(req,res){
 })
 
 app.post('/login', passport.authenticate('local', { successRedirect:'/', failureRedirect: '/auth' }));
-
-app.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
+app.get('/logout', function(req, res, next) {
+    req.logout(function(err) {
+      if (err) { return next("test",err); }
+      res.redirect('/');
+    });
   });
+
 }
