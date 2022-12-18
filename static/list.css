@@ -54,6 +54,41 @@ h1{
     margin: 80px auto;
 }
 
+.cadre-select-genre{
+    float: right;
+    width: 65%;
+    height: 300px;
+    background: rgba(12, 12, 12, 0.863);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin: 80px auto;
+    margin-top: -50px;
+}
+
+.cadre-select-genre ul {
+    display: flex;
+}
+
+.cadre-select-genre ul li a {
+    display:block;
+    flex-direction: row;
+    color: #fefefe;
+    font-size: 20px;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: 0.2s;
+    margin: 0 15px;
+    margin-top: 70px;
+}
+
+.cadre-select-genre ul li a:hover {
+    color: #fefefe;
+    background: #FF6347;
+}
+
 .cadre-user{
     float: left;
     width: 30%;
@@ -80,6 +115,35 @@ h1{
     font-weight: bold;
 }
 
+.cadre-info{
+    float: left;
+    width: 30%;
+    height: 400px;
+    background: rgba(12, 12, 12, 0.863);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin: 80px auto;
+}
+
+.h2-info{
+    float: left;
+    width: 30%;
+    height: 300px;
+    background: rgba(12, 12, 12, 0.863);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin: 80px auto;
+    margin-top: -50px;
+    padding-top: 90px;
+    font-weight: bold;
+}
+
 .stats ul li {
     float: left;
     display: block;
@@ -96,6 +160,19 @@ h1{
     color: #fefefe;
     font-size: 30px;
     width: 50%;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: 0.2s;
+    background-color: #FF6347;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.h2-genre{
+    display: block;
+    color: #fefefe;
+    font-size: 30px;
+    width: 40%;
     padding: 10px 25px;
     border-radius: 50px;
     transition: 0.2s;
