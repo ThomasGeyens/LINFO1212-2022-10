@@ -65,8 +65,32 @@
               </div>
               <div class="cadre">
                 <h2 class="h2-liste">Liste des musiques notées pour la catégorie Classique:</h2>
-
-
+                <div class="row" id="premier-element">
+                  <div class="column">
+                    <h2>Chanson</h2>
+                    <% for(var i=0; i < ClassiqueSongs.length; i++) { %>
+                      <p><%= ClassiqueSongs[i].name_artist %></p>
+                    <% } %>
+                  </div>
+                  <div class="column">
+                    <h2>Avis</h2>
+                    <% for(var i=0; i < ClassiqueSongs.length; i++) { %>
+                      <p><%= ClassiqueSongs[i].description %></p>
+                    <% } %>
+                  </div>
+                  <div class="column">
+                    <h2>Rating</h2>
+                    <% for(var i=0; i < ClassiqueSongs.length; i++) { %>
+                      <p><%= ClassiqueSongs[i].rating %></p>
+                    <% } %>
+                  </div>
+                  <div class="column">
+                    <h2>Genre</h2>
+                    <% for(var i=0; i < ClassiqueSongs.length; i++) { %>
+                      <p><%= ClassiqueSongs[i].genre %></p>
+                    <% } %>
+                  </div>
+                </div>
             </div>
               <footer>
                 <a name="basdepage"></a>

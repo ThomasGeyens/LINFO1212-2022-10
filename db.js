@@ -267,6 +267,69 @@ module.exports = {
     );
   },
 
+  getPopSongs: async function(userId) {
+    return Song.findAll({
+      where: {
+        userId: userId,
+        genre: "Pop"
+      },
+    })
+  },
+
+  getRockSongs: async function(userId) {
+    return Song.findAll({
+      where: {
+        userId: userId,
+        genre: "Rock"
+      },
+    })
+  },
+
+  getJazzSongs: async function(userId) {
+    return Song.findAll({
+      where: {
+        userId: userId,
+        genre: "Jazz"
+      },
+    })
+  },
+
+  getRnbSongs: async function(userId) {
+    return Song.findAll({
+      where: {
+        userId: userId,
+        genre: "RnB"
+      },
+    })
+  },
+
+  getClassiqueSongs: async function(userId) {
+    return Song.findAll({
+      where: {
+        userId: userId,
+        genre: "Classique"
+      },
+    })
+  },
+
+  getRapSongs: async function(userId) {
+    return Song.findAll({
+      where: {
+        userId: userId,
+        genre: "Rap"
+      },
+    })
+  },
+  
+  getElectroSongs: async function(userId) {
+    return Song.findAll({
+      where: {
+        userId: userId,
+        genre: "Electro"
+      },
+    })
+  },
+
   User,
   Song
 };

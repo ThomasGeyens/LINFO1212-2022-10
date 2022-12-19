@@ -65,7 +65,32 @@
               </div>
               <div class="cadre">
                 <h2 class="h2-liste">Liste des musiques notées pour la catégorie RnB:</h2>
-
+                <div class="row" id="premier-element">
+                  <div class="column">
+                    <h2>Chanson</h2>
+                    <% for(var i=0; i < RnbSongs.length; i++) { %>
+                      <p><%= RnbSongs[i].name_artist %></p>
+                    <% } %>
+                  </div>
+                  <div class="column">
+                    <h2>Avis</h2>
+                    <% for(var i=0; i < RnbSongs.length; i++) { %>
+                      <p><%= RnbSongs[i].description %></p>
+                    <% } %>
+                  </div>
+                  <div class="column">
+                    <h2>Rating</h2>
+                    <% for(var i=0; i < RnbSongs.length; i++) { %>
+                      <p><%= RnbSongs[i].rating %></p>
+                    <% } %>
+                  </div>
+                  <div class="column">
+                    <h2>Genre</h2>
+                    <% for(var i=0; i < RnbSongs.length; i++) { %>
+                      <p><%= RnbSongs[i].genre %></p>
+                    <% } %>
+                  </div>
+                </div>
 
             </div>
               <footer>

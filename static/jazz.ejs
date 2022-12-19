@@ -65,7 +65,32 @@
               </div>
               <div class="cadre">
                 <h2 class="h2-liste">Liste des musiques notées pour la catégorie Jazz:</h2>
-
+                <div class="row" id="premier-element">
+                  <div class="column">
+                    <h2>Chanson</h2>
+                    <% for(var i=0; i < JazzSongs.length; i++) { %>
+                      <p><%= JazzSongs[i].name_artist %></p>
+                    <% } %>
+                  </div>
+                  <div class="column">
+                    <h2>Avis</h2>
+                    <% for(var i=0; i < JazzSongs.length; i++) { %>
+                      <p><%= JazzSongs[i].description %></p>
+                    <% } %>
+                  </div>
+                  <div class="column">
+                    <h2>Rating</h2>
+                    <% for(var i=0; i < JazzSongs.length; i++) { %>
+                      <p><%= JazzSongs[i].rating %></p>
+                    <% } %>
+                  </div>
+                  <div class="column">
+                    <h2>Genre</h2>
+                    <% for(var i=0; i < JazzSongs.length; i++) { %>
+                      <p><%= JazzSongs[i].genre %></p>
+                    <% } %>
+                  </div>
+                </div>
 
             </div>
               <footer>
