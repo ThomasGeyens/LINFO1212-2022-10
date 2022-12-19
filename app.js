@@ -292,16 +292,12 @@ app.get('/list', async function (req, res)  {
         }
         var data = [];
         data.push(pop_rat,rock_rat,jazz_rat,classique_rat,rap_rat, rnb_rat,electro_rat);
-        console.log("this is the data: ", data)
-        bestgenre = 0;
-        for (let i = 0; i <data.length; i++){
-            if (data[i] > bestgenre){
-                bestgenre = i;
-            }
-        }
+        const maxValue = Math.max.apply(null, data);
+        const indexOfMaxValue = data.indexOf(maxValue);
 
         var temp = ["Pop", "Rock", "Jazz", "Classique", "Rap", "Rnb", "Electro"];
-        var realbestgenre = temp[bestgenre];
+        var realbestgenre = temp[indexOfMaxValue];
+        console.log(realbestgenre)
 
 
 
