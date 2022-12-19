@@ -97,6 +97,11 @@ h1{
     background: #FF6347;
 }
 
+.cadre-genre ul li a.active{
+    color: #fefefe;
+    background: #FF6347;
+  }
+
 .cadre-info{
     float: left;
     width: 30%;
