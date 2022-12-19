@@ -193,6 +193,8 @@ app.get('/', async function (req, res) {
     res.render(path.join(__dirname, 'static/index.ejs'), {errormessage: "", data:data, nbr_of_songs_data:nbr_of_songs_data, total_nbr_of_songs: total_nbr_of_songs});
 });
 
+/*Liens vers les différentes pages*/
+
 app.get('/auth', (req, res) => {
     res.render(path.join(__dirname, 'static/auth.ejs'));
 });
@@ -200,6 +202,46 @@ app.get('/auth', (req, res) => {
 app.get('/report', (req, res) => {
     res.locals.user = req.user;
     res.render(path.join(__dirname, 'static/report.ejs'));
+});
+
+app.get('/pop', (req, res) => {
+    res.locals.user = req.user;
+    res.render(path.join(__dirname, 'static/pop.ejs'));
+});
+
+app.get('/rap', (req, res) => {
+    res.locals.user = req.user;
+    res.render(path.join(__dirname, 'static/rap.ejs'));
+});
+
+app.get('/rap', (req, res) => {
+    res.locals.user = req.user;
+    res.render(path.join(__dirname, 'static/rap.ejs'));
+});
+
+app.get('/electro', (req, res) => {
+    res.locals.user = req.user;
+    res.render(path.join(__dirname, 'static/electro.ejs'));
+});
+
+app.get('/rock', (req, res) => {
+    res.locals.user = req.user;
+    res.render(path.join(__dirname, 'static/rock.ejs'));
+});
+
+app.get('/classique', (req, res) => {
+    res.locals.user = req.user;
+    res.render(path.join(__dirname, 'static/classique.ejs'));
+});
+
+app.get('/rnb', (req, res) => {
+    res.locals.user = req.user;
+    res.render(path.join(__dirname, 'static/rnb.ejs'));
+});
+
+app.get('/jazz', (req, res) => {
+    res.locals.user = req.user;
+    res.render(path.join(__dirname, 'static/jazz.ejs'));
 });
 
 app.post('/auth', (req, res) => {
@@ -292,17 +334,12 @@ app.get('/list', async function (req, res)  {
         }
         var data = [];
         data.push(pop_rat,rock_rat,jazz_rat,classique_rat,rap_rat, rnb_rat,electro_rat);
-        console.log("this is the data: ", data)
-        bestgenre = 0;
-        for (let i = 0; i <data.length; i++){
-            if (data[i] > bestgenre){
-                bestgenre = i;
-            }
-        }
+        const maxValue = Math.max.apply(null, data);
+        const indexOfMaxValue = data.indexOf(maxValue);
 
         var temp = ["Pop", "Rock", "Jazz", "Classique", "Rap", "Rnb", "Electro"];
-        var realbestgenre = temp[bestgenre];
-
+        var realbestgenre = temp[indexOfMaxValue];
+        console.log(realbestgenre)
 
 
         nbrofsongs += await db.get_nbr_of_songs(userid);

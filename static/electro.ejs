@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reportify</title>
+        <link rel="stylesheet" href="/genre.css">
+        <link rel="stylesheet" href="/nav.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--Import Google Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    </head>
+
+    <body>
+        <div class="navbar">
+          <a id="logo-holder" href="/">
+            <img src="images/Reportify.png" height="300" alt="" loading="lazy">
+          </a>
+          
+          <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <nav class="nav-bar">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="" class="active">Catégories</a></li>
+              <li><a href="/report">Review</a></li>
+              <li><a href="#basdepage">Contact</a></li>
+              <li>
+                <h4 id="name-holder">
+                  <% if(user){ %>
+                    <a> <%= user.username %> </a>
+                    <ul><li><button onclick='location.href="/logout"'>Déconnexion</button></li></ul>
+                  <% } else{ %>  
+                    <a href="/auth">Login</a>
+                  <% } %>
+                </h4>
+              </li>
+            </ul>
+            <!--<div class="search-container">
+              <form action="/search/process" method="post">
+                <input class="search-input" type="text" placeholder="search" name="keyword" value=''>
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>-->
+          </nav>
+        </div>
+
+        <script src="navbar/navbar.js"></script>
+
+        <div class="page" >
+          
+              <div class="cadre-user">
+                <center><div class="user-title">User-name</div></center>
+                <div class="stats">
+                  <ul>
+                    <li>Nombres de musiques notées :</li>
+                    <li>Moyenne des notes :</li>
+                    <li>Catégories préférées :</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="cadre">
+                <h2 class="h2-liste">Liste des musiques notées pour la catégorie Electro:</h2>
+
+
+            </div>
+              <footer>
+                <a name="basdepage"></a>
+                <ul>
+                  <li>Thomas Geyens: thomas.geyens@student.uclouvain.be</li>
+                  <li>Arthur Remience: arthur.remience@student.uclouvain.be</li>
+                  <li>Loris Dognaux: loris.dognaux@student.uclouvain.be</li>
+                </ul>
+              </footer>
+          </div>
+    </body>
+</html>
