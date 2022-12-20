@@ -108,19 +108,20 @@ input{
 }
 
 .valider {
-  display:block;
-  width: 15%;
+  width:20%;
   padding: 8px;
   border: none;
   outline: none;
   background: #FF6347;
   color: #fefefe;
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
   border-radius: 50px;
-  margin-top: 390px;
-  float: inline-start;
+  display: block;
+  margin-left: 532px;
 }
 
 label{
@@ -159,7 +160,6 @@ select.bottom{
   height: 61px;
   left: 1078px;
   top: 500px;
-
   background: #111111;
   border: 2px solid #FF6347;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -201,12 +201,14 @@ input:valid {
 }
 
 footer{
+  display: inline-block;
   position: relative;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 60px;
-  float:inline-end;
+  padding-top: 100px;
+  bottom: -30px;
 }
 
 footer ul{
