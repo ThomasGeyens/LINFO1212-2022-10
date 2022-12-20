@@ -54,7 +54,7 @@
           </div>
 
           <div class="signup">
-            <form method="post" action="/signup">
+            <form method="post" action="/signup" onsubmit="validateForm(event)">
               
                 <h2 class="h2">Nouveau compte</h2>
                 <label for="username"><b>Nom d'utilisateur</b></label>
@@ -67,13 +67,28 @@
                 <input type="text" placeholder="Enter Password" name="name" required>
             
                 <label for="email"><b>Adresse e-mail</b></label>
-                <input type="text" placeholder="Enter e-mail" name="email" required>
+                <input type="text" placeholder="Enter e-mail" id="email" name="email" required>
   
                 <button type="submit">s'enregistrer</button>
               
             
             </form>
         </div>
+        <!--Valid email script-->
+        <script>
+          function isEmailValid(email) {
+          const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+          return regex.test(email);
+          }
+          function validateForm(event) {
+            const email = document.getElementById("email").value;
+            if (!isEmailValid(email)) {
+              alert("Invalid email address");
+              event.preventDefault();
+            }
+          }
+        </script>
+
         <footer>
           <a name="basdepage"></a>
           <ul>
@@ -83,6 +98,5 @@
           </ul>
         </footer>
       </div>
-      
     </body>
 </html>
