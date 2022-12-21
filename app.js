@@ -559,7 +559,8 @@ const { Song, get_nbr_of_songs, getAverageRatingForAll, User } = require('./db.j
         where: {
           [Op.or]: [
             { 'description': { [Op.like]: '%' + keyword + '%' } },
-            { '$name_artist$': { [Op.like]: '%' + keyword + '%' } }
+            { '$name_artist$': { [Op.like]: '%' + keyword + '%' } },
+            { '$rating$': {[Op.like]: '%' + keyword + '%' } }
           ]
         }
     };

@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport-local');
 const User = require('./db').User;
 const bcrypt = require('bcrypt');
+const {salt} = require('./auth');
 module.exports = function(app,passport)
 {
 
@@ -20,7 +21,7 @@ app.use(bodyParser.json());
  });
 
 app.post('/signup', function(req,res){
-    let hashed = bcrypt.hashSync(req.body.password, 10);
+    let hashed = bcrypt.hashSync(req.body.password, salt);
     var a = [req.body.email,req.body.username, hashed, req.body.name];
     User.findOne({
        where: { email: a[0],
