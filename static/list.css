@@ -32,13 +32,19 @@ h1{
     color: #fefefe;
     font-size: 30px;
     width: 50%;
+    height: 300px;
     padding: 10px 25px;
-    border-radius: 50px;
     transition: 0.2s;
-    margin-top: 340px;
-    margin-bottom:400px;
-    background-color: #FF6347;
+    margin-top: 250px;
+    margin-bottom:200px;
+    background: rgb(255, 0, 0);
+    box-shadow: 0 8px 32px 0 rgb(255, 0, 0);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     margin-left: 350px;
+    padding-top: 100px;
 }
 
 .cadre{
@@ -215,10 +221,11 @@ h1{
 
 .h2-search{
     display: inline-block;
-    width: 100%;
+    width: auto;
     height: 100px;
     background: rgba(12, 12, 12, 0.863);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(0.3px);
     -webkit-backdrop-filter: blur(0.3px);
     border-radius: 50px;
@@ -227,7 +234,7 @@ h1{
     padding: 35px;
     font-weight: bold;
     text-align: center;
-    margin-right: 300px ;
+    margin-right: 75px ;
     margin-top: -30px;
 }
 
@@ -257,9 +264,10 @@ h1{
     border-radius: 20px;
   }
   
-  .search-container button:hover {
+.search-container button:hover {
     background: #FF6347;
 }
+
 footer{
     display: inline-block;
     position: relative;
@@ -301,7 +309,7 @@ footer ul li {
     border-radius: 50px;
     transition: 0.2s;
     margin: 0 5px;
-  }
+}
   
 footer ul li:hover {
 top: 50%;
