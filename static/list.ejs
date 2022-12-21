@@ -26,7 +26,7 @@
           <nav class="nav-bar">
             <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/list" class="active">Catégories</a></li>
+              <li><a href="/list" class="active">Statistiques</a></li>
               <li><a href="/report">Review</a></li>
               <li><a href="#basdepage">Contact</a></li>
               <li>
@@ -81,7 +81,7 @@
                       <% } %>
                     </div>
                     <div class="column">
-                      <h2>Rating</h2>
+                      <h2>Evaluation</h2>
                       <% for(var i=0; i < songs.length; i++) { %>
                         <p><%= songs[i].rating %></p>
                       <% } %>
@@ -106,9 +106,9 @@
                   <li><a href="/jazz">Jazz</a></li>
                 </ul>
               </div>
-                <h2 class="h2-info">Afin de voir votre liste de musiqiue notée par genre, Veuillez selectionner la catégorie située a votre droite ---></h2>
+                <h2 class="h2-info">Afin de voir votre liste de musique notée par genre, Veuillez selectionner la catégorie située à votre droite ---></h2>
                 <div class="search-container">
-                  <h2 class="h2-search">Utilisez la bar de recherche ci-dessous, afin de trouver une musique que vous avez noté plus facilement </h2>
+                  <h2 class="h2-search">Utilisez la bar de recherche ci-dessous, elle vous permet de trouver un song, un avis, une évaluation et ce avec tous les utilisateurs du site ! </h2>
                   <form action="/search/process" method="post">
                     <input class="search-input" type="text" placeholder="search" name="keyword" value=''>
                     <button type="submit"><i class="fa fa-search"></i></button>
@@ -123,7 +123,7 @@
                 </ul>
               </footer>
               <% }else{ %>
-                <h1>Afin d'avoir acces a votre liste de chansons notées, il suffit de vous connectez ou bien de créer un compte !</h1>
+                <h1>Afin d'avoir accès à votre liste de chansons notées, il suffit de vous connectez ou bien de créer un compte !</h1>
                 <footer>
                   <a name="basdepage"></a>
                   <ul>
