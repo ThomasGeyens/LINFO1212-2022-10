@@ -33,7 +33,7 @@ require('./authroutes.js')(app, passport);
 
 db.testCon();
 
-app.get('/', async function (req, res) {
+app.get('/list', async function (req, res) {
     res.locals.user = req.user;
     var id = res.locals.user;
     if (id == undefined){
@@ -324,7 +324,7 @@ app.post('/auth', (req, res) => {
     //const user = // get the user object
     req.session.id = user.id;
   });
-app.get('/list', async function (req, res)  {
+app.get('/', async function (req, res)  {
     res.locals.user = req.user;
     var id = res.locals.user;
     if (id == undefined){
@@ -431,7 +431,7 @@ app.get('/list', async function (req, res)  {
     }
 
 
-    res.render(path.join(__dirname, 'static/list.ejs'), {songs: songs, nbrofsongs: nbrofsongs, avgforallsongs:avgforallsongs, realbestgenre:realbestgenre});
+    res.render(path.join(__dirname, 'static/list.ejs'), {errormessage: "", songs: songs, nbrofsongs: nbrofsongs, avgforallsongs:avgforallsongs, realbestgenre:realbestgenre});
 });
 
 var urlencodeParser = bodyParser.urlencoded({ extended: false})
