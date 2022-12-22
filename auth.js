@@ -5,8 +5,37 @@ const passport = require('passport')
 
 const salt = "$2b$10$XzJlrKQwqwFg4DZNXmmHPO";
 
+const checkUserInput = {
+
+  isValidUsername : function(input) {
+      if(input.length < 5){
+          return false;
+      }
+      return true;
+
+  },
+
+  isValidPassword : function(input) {
+      if(input.length < 5){
+          return false;
+      }
+      return true;
+  },
+
+  isValidEmail : function(input) {
+      // email should be in the format of abc@def.com
+      const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+      return emailRegex.test(input);
+  }
+
+}
+
+
+
+
 module.exports = {
-  salt
+  salt,
+  checkUserInput: checkUserInput
 }
 
 passport.use(new LocalStrategy(
