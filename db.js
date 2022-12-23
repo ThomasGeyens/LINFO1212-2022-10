@@ -4,6 +4,7 @@ const sequelize = new Sequelize({
   storage: 'db.sqlite'
 });
 
+//base de données de la table Song
 const Song = sequelize.define('Song', {
   // Model attributes are defined here
   name_artist: {
@@ -26,6 +27,7 @@ const Song = sequelize.define('Song', {
   // Other model options go here
 });
 
+//base de données du User
 const User = sequelize.define('User', {
   // Model attributes are defined here
   username: {
@@ -241,6 +243,7 @@ module.exports = {
     });
   },
 
+  //fonction qui trouve l'évaluation moyenne de toutes les musiques
   getAverageRatingForAll: async function(userId) {
     return Song.findAll({
       attributes: [
@@ -267,6 +270,7 @@ module.exports = {
     );
   },
 
+  //les fonctions ci dessous permettent de trouver toutes les chansons d'un certain genre
   getPopSongs: async function(userId) {
     return Song.findAll({
       where: {
@@ -338,4 +342,4 @@ async function syncr () {
   await sequelize.sync({ force: true });
 }
 
-//syncr(); //Pour faire un changement dans la base de donnée il est nécessaire d'enelever ce comm
+//syncr(); //Pour faire un changement dans la base de donnée il est nécessaire d'enelever ce commentaire et la base de données sera vide.

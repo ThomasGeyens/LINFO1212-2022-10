@@ -20,6 +20,7 @@ app.use(bodyParser.json());
      })
  });
 
+ //fonction du signup
 app.post('/signup', function(req,res){
     let hashed = bcrypt.hashSync(req.body.password, salt);
     var a = [req.body.email,req.body.username, hashed, req.body.name];
@@ -53,6 +54,8 @@ app.post('/signup', function(req,res){
 })
 
 app.post('/login', passport.authenticate('local', { successRedirect:'/', failureRedirect: '/auth' }));
+
+//fonction de logout
 app.get('/logout', function(req, res, next) {
     req.logout(function(err) {
       if (err) { return next("test",err); }

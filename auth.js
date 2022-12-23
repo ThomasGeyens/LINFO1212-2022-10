@@ -5,38 +5,12 @@ const passport = require('passport')
 
 const salt = "$2b$10$XzJlrKQwqwFg4DZNXmmHPO";
 
-/*
-const checkUserInput = {
-  isValidUsername : function(input) {
-      if(input.length < 5){
-          return false;
-      }
-      return true;
-
-  },
-
-  isValidPassword : function(input) {
-      if(input.length < 5){
-          return false;
-      }
-      return true;
-  },
-
-  isValidEmail : function(input) {
-      // email should be in the format of abc@def.com
-      const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-      return emailRegex.test(input);
-  }
-
-}*/
-
-
-
-
 module.exports = {
   salt,
 }
 
+
+//fonction qui permet de checker si l'user entre les bonnes informations
 passport.use(new LocalStrategy(
   function (username, password, done) {
       getUser(username)
@@ -52,7 +26,8 @@ passport.use(new LocalStrategy(
           .catch(err => done(err));
   }  
 ));
-  
+ 
+//fonction qui permet de serializer le mdp du user
 passport.serializeUser(function(user, cb) {
   process.nextTick(function() {
     return cb(null, {
@@ -62,6 +37,7 @@ passport.serializeUser(function(user, cb) {
   });
 });
 
+//fonction qui permet de deserializer le mdp du user
 passport.deserializeUser(function(id, done) {
   getUser(id.username).then(user => {
     done(null, user);

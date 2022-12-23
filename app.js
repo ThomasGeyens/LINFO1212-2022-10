@@ -34,6 +34,7 @@ require('./authroutes.js')(app, passport);
 db.testCon();
 
 app.get('/list', async function (req, res) {
+    //page statisique, on calcule la moyenne de chaque genre grâce aux fontions dans db.js
     res.locals.user = req.user;
     var id = res.locals.user;
     if (id == undefined){
@@ -204,6 +205,7 @@ app.get('/report', (req, res) => {
     res.render(path.join(__dirname, 'static/report.ejs'));
 });
 
+//page pop
 app.get('/pop', async function (req, res) {
     res.locals.user = req.user;
 
@@ -224,6 +226,7 @@ app.get('/pop', async function (req, res) {
     res.render(path.join(__dirname, 'static/pop.ejs'), {PopSongs: PopSongs});
 });
 
+//page rock
 app.get('/rap', async function (req, res) {
     res.locals.user = req.user;
 
@@ -241,6 +244,7 @@ app.get('/rap', async function (req, res) {
     res.render(path.join(__dirname, 'static/rap.ejs'), {RapSongs:RapSongs});
 });
 
+//page electro
 app.get('/electro', async function (req, res) {
     res.locals.user = req.user;
 
@@ -258,6 +262,7 @@ app.get('/electro', async function (req, res) {
     res.render(path.join(__dirname, 'static/electro.ejs'), {ElectroSongs:ElectroSongs});
 });
 
+//page rock
 app.get('/rock', async function (req, res) {
     res.locals.user = req.user;
     var id = res.locals.user;
@@ -273,6 +278,7 @@ app.get('/rock', async function (req, res) {
     res.render(path.join(__dirname, 'static/rock.ejs'), {RockSongs:RockSongs});
 });
 
+//page classique
 app.get('/classique', async function (req, res) {
     res.locals.user = req.user;
 
@@ -290,6 +296,7 @@ app.get('/classique', async function (req, res) {
     res.render(path.join(__dirname, 'static/classique.ejs'), {ClassiqueSongs:ClassiqueSongs});
 });
 
+//page rnb
 app.get('/rnb', async function (req, res) {
     res.locals.user = req.user;
     var id = res.locals.user;
@@ -305,6 +312,7 @@ app.get('/rnb', async function (req, res) {
     res.render(path.join(__dirname, 'static/rnb.ejs'), {RnbSongs});
 });
 
+//page jazz
 app.get('/jazz', async function (req, res) {
     res.locals.user = req.user;
     var id = res.locals.user;
@@ -325,6 +333,7 @@ app.post('/auth', (req, res) => {
     req.session.id = user.id;
   });
 app.get('/', async function (req, res)  {
+    //page home
     res.locals.user = req.user;
     var id = res.locals.user;
     if (id == undefined){
@@ -332,6 +341,7 @@ app.get('/', async function (req, res)  {
     }else{
         id += res.locals.user.dataValues.id;
     }
+    //on trouve le user qui est connecté
     var userid = id[31];
     userid = parseInt(userid);
 
@@ -430,7 +440,7 @@ app.get('/', async function (req, res)  {
         songs = await db.getSongs(userid)
     }
 
-
+    //on envoie donc les données trouvé au dessus sur la page list
     res.render(path.join(__dirname, 'static/list.ejs'), {errormessage: "", songs: songs, nbrofsongs: nbrofsongs, avgforallsongs:avgforallsongs, realbestgenre:realbestgenre});
 });
 
@@ -552,7 +562,7 @@ const { Song, get_nbr_of_songs, getAverageRatingForAll, User } = require('./db.j
         
     }
 
-    //search bar
+    //search bar qui associe un keyword à l'input
     var keyword;
     keyword = req.params.keyword;
     var options = {
