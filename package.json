@@ -12,7 +12,8 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "sequelize": "^6.24.0",
-    "sqlite3": "^5.1.2"
+    "sqlite3": "^5.1.2",
+    "supertest": "^6.3.3"
   },
   "scripts": {
     "test": "jest"

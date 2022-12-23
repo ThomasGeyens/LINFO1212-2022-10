@@ -1,16 +1,17 @@
-const { checkUserInput } = require('./auth');
+const request = require('supertest');
+const authroutes = require('./authroutes');
+const auth = require('./auth');
+const express = require('express');
+const app = express();
 
-test('isValidUsername', () => {
-    expect(checkUserInput.isValidUsername('abc')).toBe(false);
-    expect(checkUserInput.isValidUsername('abcdef')).toBe(true);
-});
+describe('authroutes', () => {
+  test('It should return a 401 status code when given an invalid username', async () => {
+    const response = await request(authroutes(auth)).post('/login').send({
+      username: 'invalid',
+      password: 'password'
+    });
+    expect(response.statusCode).toBe(401);
+  });
 
-test('isValidPassword', () => {
-    expect(checkUserInput.isValidPassword('abcd')).toBe(false);
-    expect(checkUserInput.isValidPassword('Abcdef123')).toBe(true);
-});
-
-test('isValidEmail', () => {
-    expect(checkUserInput.isValidEmail('abcdef')).toBe(false);
-    expect(checkUserInput.isValidEmail('abc@def.com')).toBe(true);
+  // Other test cases go here
 });

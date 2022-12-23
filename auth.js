@@ -5,8 +5,8 @@ const passport = require('passport')
 
 const salt = "$2b$10$XzJlrKQwqwFg4DZNXmmHPO";
 
+/*
 const checkUserInput = {
-
   isValidUsername : function(input) {
       if(input.length < 5){
           return false;
@@ -28,14 +28,13 @@ const checkUserInput = {
       return emailRegex.test(input);
   }
 
-}
+}*/
 
 
 
 
 module.exports = {
   salt,
-  checkUserInput: checkUserInput
 }
 
 passport.use(new LocalStrategy(
