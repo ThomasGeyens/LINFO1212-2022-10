@@ -25,8 +25,8 @@
           </div>
           <nav class="nav-bar">
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="" class="active">Statistiques</a></li>
+              <li><a href="/" class="active">Home</a></li>
+              <li><a href="/list">Statistiques</a></li>
               <li><a href="/report">Review</a></li>
               <li><a href="#basdepage">Contact</a></li>
               <li>
@@ -70,29 +70,39 @@
               <div class="cadre">
                 <h2 class="h2-liste">Liste des musiques notées pour la catégorie RnB:</h2>
                 <div class="row" id="premier-element">
-                  <div class="column">
-                    <h2>Chanson</h2>
-                    <% for(var i=0; i < RnbSongs.length; i++) { %>
-                      <p><%= RnbSongs[i].name_artist %></p>
-                    <% } %>
-                  </div>
-                  <div class="column">
-                    <h2>Avis</h2>
-                    <% for(var i=0; i < RnbSongs.length; i++) { %>
-                      <p><%= RnbSongs[i].description %></p>
-                    <% } %>
-                  </div>
-                  <div class="column">
-                    <h2>Rating</h2>
-                    <% for(var i=0; i < RnbSongs.length; i++) { %>
-                      <p><%= RnbSongs[i].rating %></p>
-                    <% } %>
-                  </div>
-                  <div class="column">
-                    <h2>Genre</h2>
-                    <% for(var i=0; i < RnbSongs.length; i++) { %>
-                      <p><%= RnbSongs[i].genre %></p>
-                    <% } %>
+                  <div class="main-column">
+                    <div class="column">
+                      <div class="sub-column">
+                        <h2>Chanson</h2>
+                        <% for(var i=0; i < RnbSongs.length; i++) { %>
+                          <p><%= RnbSongs[i].name_artist %></p>
+                        <% } %>
+                      </div>
+                    </div>
+                    <div class="column">
+                      <div class="sub-column">
+                        <h2>Avis</h2>
+                        <% for(var i=0; i < RnbSongs.length; i++) { %>
+                          <p><%= RnbSongs[i].description %></p>
+                        <% } %>
+                      </div>
+                    </div>
+                    <div class="column">
+                      <div class="sub-column">
+                        <h2>Rating</h2>
+                        <% for(var i=0; i < RnbSongs.length; i++) { %>
+                          <p><%= RnbSongs[i].rating %></p>
+                        <% } %>
+                      </div>
+                    </div>
+                    <div class="column">
+                      <div class="sub-column">
+                        <h2>Genre</h2>
+                        <% for(var i=0; i < RnbSongs.length; i++) { %>
+                          <p><%= RnbSongs[i].genre %></p>
+                        <% } %>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
